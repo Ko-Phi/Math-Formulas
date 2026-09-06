@@ -1,5 +1,7 @@
+#set enum(numbering: "1.a.", spacing: 1.5em)
+
 #show heading.where(level: 3): set heading(numbering: none, outlined: false)
-#set enum(numbering: "1.a.")
+#show heading.where(level: 4): set heading(numbering: none, outlined: false)
 
 #set page(numbering: "1")
 #set heading(
@@ -7,12 +9,14 @@
 )
 #set text(font: "New Computer Modern")
 
-#let sideBySide(body1, body2) = {
+#let sideBySide(body1, body2, width: 1fr, gutter: 0pt) = {
   grid(
-    columns: (1fr, 1fr),
-    align(right)[
+    columns: (width, width),
+    gutter: gutter,
+    align(center)[
       #body1
-    ], align(left)[
+    ],
+    align(center)[
       #body2 ]
   )
 }
@@ -30,7 +34,8 @@
 = Polynomials
 
 == Linear Equations
-For polynomials of degree one, the variable $m$ is used to refer to the slope of the lines drawn by their graphs. Parallel lines have equivalent slopes, while perpendicular lines have slopes that are reciprocals of one another ($m perp 1 / m$).
+For polynomials of degree one, the variable $m$ is used to refer to the slope of the lines drawn by their graphs.
+Parallel lines have equivalent slopes, while perpendicular lines have slopes that are reciprocals of one another ($m perp 1 / m$).
 $ m = (Delta y) / (Delta x) = (y_2-y_1) / (x_2-x_1) $
 
 === Slope-Intercept Form $y = m x + b$
@@ -76,8 +81,7 @@ where $c_1, c_2, dots, c_n$ are complex numbers.
 If the polynomial has _integer_ coefficients, then every rational zero of $f$ has the form $p / q$,
 where $p$ and $q$ have no commons factors other than 1, and
 
-+ $p =$ a factor of the constant term $a_0$.
-+ $q =$ a factor of the leading coefficient $a_n$.
+#sideBySide($ p= "a factor of the constant term" a_0 $, $ q = a "factor of the leading coefficient" a_n $)
 
 === Conjugate Pairs
 
@@ -111,50 +115,58 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
 == Functions
 
-#sideBySide($ sin x & = text("opposite") / text("hypotenuse")                   \
-  cos x & = text("adjacent") / text("hypotenuse")                   \
-  tan x & = text("opposite") / text("adjacent") = (sin x) / (cos x) $
-,
-$ csc x & = 1 / (sin x) \
-  sec x & = 1 / (cos x) \
-  cot x & = 1 / (tan x) $)
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  align(horizon)[
+    $ sin x & = "opposite" / "hypotenuse"                   \
+      cos x & = "adjacent" / "hypotenuse"                   \
+      tan x & = "opposite" / "adjacent" = (sin x) / (cos x) $
+  ], align(horizon)[$ csc x & = 1 / (sin x) \
+    sec x & = 1 / (cos x) \
+    cot x & = 1 / (tan x) $ ], align(horizon)[
+    #figure(table(
+      inset: 8pt,
+      columns: (1fr, 1fr, 1fr),
+      table.header([Function], [Domain], [Range]),
+      $sin^(-1)$, $[-1, 1]$, $[-90°, 90°]$,
+      $cos^(-1)$, $[-1, 1]$, $[0°, 180°]$,
+      $tan^(-1)$, $bb(R)$,   $[-90°, 90°]$,
+      $cot^(-1)$, $bb(R)$,   $[0°, 180°]$,
+    ))
+  ]
+)
 
 #figure(table(
-  inset: 10pt,
+  inset: 8pt,
   columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
   table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
-  $sin$, $0$, $1$,           $sqrt(2) / 2$, $sqrt(3) / 2$, $1$,     $0$, $-1$,    $0$,
-  $cos$, $1$, $sqrt(3) / 2$, $sqrt(2) / 2$, $1 / 2$,       $1$,     $0$, $-1$,    $0$,
-  $cos$, $0$, $sqrt(3) / 3$, $1$,           $sqrt(3)$,     [undef], $0$, [undef], $0$,
-), caption: [Common Values])
-
-#figure(table(
-  inset: 10pt,
-  columns: (1fr, 1fr, 1fr),
-  table.header([Function], [Domain], [Range]),
-  $sin^(-1)$, $[-1, 1]$, $[-90°, 90°]$,
-  $cos^(-1)$, $[-1, 1]$, $[0°, 180°]$,
-  $tan^(-1)$, $bb(R)$,   $[-90°, 90°]$,
-  $cot^(-1)$, $bb(R)$,   $[0°, 180°]$,
-), caption: [Inverse Functions])
+  $sin$, $0$, $1$,           $sqrt(2) / 2$, $sqrt(3) / 2$, $1$,     $0$,  $-1$,    $0$,
+  $cos$, $1$, $sqrt(3) / 2$, $sqrt(2) / 2$, $1 / 2$,       $0$,     $-1$, $0$,     $1$,
+  $cos$, $0$, $sqrt(3) / 3$, $1$,           $sqrt(3)$,     [undef], $0$,  [undef], $0$,
+))
 
 == Identities
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  align(center)[
 
-=== Radians and Degrees
-$ n°            & = pi / 180n text("rad") \
-  m text("rad") & = (180 / pi m)° $
+    === Radians and Degrees
+    $ n°            & = pi / 180n text("rad") \
+      m text("rad") & = (180 / pi m)° $
+  ], align(center)[
 
-=== Co-function
+    === Co-function
+    $ cos x & = sin(90-x) \
+      sin x & = cos(90-x) \
+      tan x & = cot(90-x) $
+  ], align(center)[
 
-$ cos x & = sin(90-x) \
-  sin x & = cos(90-x) \
-  tan x & = cot(90-x) $
-
-=== Pythagorean
-
-$ sin^2x + cos^2x = 1 \
-1 + tan^2x = sec^2x \
-1 + cot^2x = csc^2x $
+    === Pythagorean
+    $ sin^2x + cos^2x = 1 \
+    1 + tan^2x = sec^2x \
+    1 + cot^2x = csc^2x $
+  ]
+)
 
 === Negative
 
@@ -204,46 +216,39 @@ $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
 
 == Laws
 
-=== Law of Sines
+#sideBySide([=== Law of Sines
 
 $ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
-$ text("area") = 1 / 2 a b sin A $
-
-=== Law of Cosines
+$ text("area") = 1 / 2 a b sin A $ ], [=== Law of Cosines
 
 $ a^2 = b^2 + c^2 - 2 b c cos A $
-$ cos A = (b^2 + c^2 - a^2) / (2 b c) $
+$ cos A = (b^2 + c^2 - a^2) / (2 b c) $ ])
 
 = Graphs and Geometry
 
 == Relationships
 
-=== Distance
-$ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $
-
-=== Midpoint
-$ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $
+#sideBySide([ === Distance
+$ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $], [ === Midpoint
+$ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $])
 
 === Perpendicular Bisector
 $ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $
-
-=== Pythagorean Theorem
-$ a^2 + b^2 = c^2 $
-
-=== Circles
-$ (x-m)^2+(y-n)^2=r^2 $
-$ A = pi r^2 $
+#sideBySide([=== Pythagorean Theorem
+$ a^2 + b^2 = c^2 $ ], [=== Circles
+#sideBySide($ (x-m)^2+(y-n)^2=r^2 $, $ A = pi r^2 $) ])
 
 === Triangle Similarity
 Two triangles $triangle A B C text("and") triangle D E F$ are similar if
-/ SSS: $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $
-/ SAS: $ (A B) / (D E) = (A C) / (D F) text("and") angle A = angle D $
-/ AA: $ angle A = angle D text("and") angle B = angle E $
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  align(center)[==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $], align(center)[==== SAS $ (A B) / (D E) = (A C) / (D F) text("and") angle A = angle D $], align(center)[==== AA $ angle A = angle D text("and") angle B = angle E $]
+)
 
 == Graph Manipulation
 
 #align(center)[#table(
-  inset: 10pt,
+  inset: 8pt,
   columns: 3,
   align: horizon,
   table.header([Transformation], [Conditions], [Description]),
@@ -258,8 +263,8 @@ Two triangles $triangle A B C text("and") triangle D E F$ are similar if
 == Inverse Functions
 
 Let $f$ and $g$ be two function such that
-+ $f(g(x)) = x$ for all $x$ in the domain of $g$
-+ $g(f(x)) = x$ for all $x$ in the domain of $f$
+#sideBySide($ f(g(x)) = x "for all" x "in the domain of" g $, $ g(f(x)) = x "for all" x "in the domain of" f $)
+
 Under these conditions, the function $g$ is the _inverse function_ of the function $f$ (and vice-versa). The function $g$ can then be denoted as $f^(-1)$. So,
 
 #sideBySide($ f(f^(-1)(x)) = x $, $ f^(-1)(f(x)) = x $)
@@ -278,9 +283,10 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 
 == Relationships
 
-=== Exponential
+#align(center)[=== Exponential]
 
-#sideBySide($ a^0           & = 1           \
+#align(center)[#sideBySide(width: auto, gutter: 32pt,
+$ a^0           & = 1           \
   a^m dot a^n   & = a^(m + n)   \
   (a^m) / (a^n) & = a^(m - n)   \
   (a b)^n       & = a^n dot b^n $
@@ -289,11 +295,12 @@ $
   (a / b)^n     & = (a^n) / (b^n) \
   (a^m)^n       & = a^(m \cdot n) \
   a^((1) / (n)) & = root(n, a)    \
-  a^m = a^n     & arrow.r m = n $)
+  a^m = a^n     & arrow.r m = n $)]
 
-=== Logarithmic
+#align(center)[=== Logarithmic]
 
-#sideBySide($ log_a 1     & = 0             \
+#align(center)[#sideBySide(width: auto, gutter: 32pt,
+$ log_a 1     & = 0             \
   log_a a     & = 1             \
   log x       & = log_(10)x     \
   ln x        & = log_e x       \
@@ -304,4 +311,4 @@ $ log a b^n   & = n log a b             \
   log a^n b   & = 1 / n log a b         \
   log_n a b   & = log_n a + log_n b     \
   log_n a / b & = log_n a - log_n b     \
-  log_n a     & = log_n b arrow.r a = b $)
+  log_n a     & = log_n b arrow.r a = b $)]
