@@ -71,8 +71,8 @@
 
 Consider the function $f(x) = a x^2 + b x + c$ with vertex $(-b / 2a, f(-b / 2a))$
 
-+ $a > 0 ==> f$ has a _minimum_ at $x = -b / 2a$ The minimum value is $f(-b / 2a)$
-+ $a > 0 ==> f$ has a _maximum_ at $x = -b / 2a$ The maximum value is $f(-b / 2a)$
++ $a > 0 ==> f$ has a _minimum_ at $x = -b / 2a$. The minimum value is $f(-b / 2a)$.
++ $a > 0 ==> f$ has a _maximum_ at $x = -b / 2a$. The maximum value is $f(-b / 2a)$.
 
 == General Polynomials
 
@@ -181,21 +181,24 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
     === Pythagorean
     $ sin^2x + cos^2x = 1 \
-    1 + tan^2x = sec^2x \
+    tan^2x + 1 = sec^2x \
     1 + cot^2x = csc^2x $
   ]
 )
 
 #grid(
-  [#align(center)[=== Even-Odd]
+  [#align(center)[=== Even/Odd]
   #align(center)[#grid(
     columns: (auto, auto),
-    rows: auto,
-    gutter: 10pt,
-    ..($sin$, $cos$, $tan$, $cot$, $sec$, $csc$).zip(range(1, 7)).map(((fn, n)) => if calc.rem(n, 2) == 1 { $fn (-x) = -fn x$ } else { $fn (-x) = fn (x)$ })
+    $ sin (-x) & = - & sin x \
+      cos (-x) & =   & cos x \
+      tan (-x) & = - & tan x $, $
+      csc (-x) & = - & csc x \
+      sec (-x) & =   & sec x \
+      cot (-x) & = - & cot x $,
   )] ],
   [
-    #align(center)[=== Sum to Difference]
+    #align(center)[=== Sum-to-Difference]
     $ sin(x pm y) & = sin x cos y pm cos x sin y    \
       cos(x pm y) & = cos x cos y pm sin x sin y    \
       tan(x pm y) & = (sin(x pm y)) / (cos(x pm y)) $
@@ -207,9 +210,9 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   [
 
     === Half-Angle
-    $ sin (x / 2) & = pm sqrt((1 - cos x) / 2)         & "*" \
-      sin (x / 2) & = pm sqrt((1 + cos x) / 2)         & "*" \
-      tan (x / 2) & = pm (sin (x / 2)) / (cos (x / 2)) & "*" $
+    $ sin (x / 2) & = pm sqrt((1 - cos x) / 2)             & "*" \
+      sin (x / 2) & = pm sqrt((1 + cos x) / 2)             & "*" \
+      tan (x / 2) & = pm (sin (x div 2)) / (cos (x div 2)) & "*" $
   ],
   [
 
@@ -221,7 +224,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   ]
 )
 
-#align(center)[=== Sum to Product]
+#align(center)[=== Sum-to-Product]
 
 #grid(
   columns: (1.5fr, 1fr),
@@ -235,7 +238,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     cot x pm cot y & = (sin(y pm x)) / (sin x sin y) \
     "where"        & x / (90°) mod 2 != 2 $
 )
-#align(center)[=== Product to Sum]
+#align(center)[=== Product-to-Sum]
 
 $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
   cos x cos y & = (cos (x+y) + cos (x-y)) / 2 \
