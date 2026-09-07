@@ -23,37 +23,49 @@
   #v(4pt)
   #text(size: 12pt)[2026-2027] \
 ]
-#outline(
-  title: "Table of Contents",
-)
+#outline(title: "Table of Contents", indent: 0.25in)
 
 #pagebreak()
 
 = Polynomials
 
 == Linear Equations
-For polynomials of degree one, the variable $m$ is used to refer to the slope of the lines drawn by their graphs.
-Parallel lines have equivalent slopes, while perpendicular lines have slopes that are reciprocals of one another ($m perp 1 / m$).
-$ m = (Delta y) / (Delta x) = (y_2-y_1) / (x_2-x_1) $
+#grid(
+  align: left,
+  columns: (1fr, 1.1fr),
+  [ For polynomials of degree one, the variable $m$ is used to refer to the slope of the lines drawn by their graphs.
+  Parallel lines have equivalent slopes, while perpendicular lines have slopes that are reciprocals of one another ($m perp 1 / m$).], grid(
+    align: center + horizon,
+    columns: (auto, auto),
+    column-gutter: 40pt,
+    [=== Slope-Intercept
+    $y = m x + b$
 
-=== Slope-Intercept Form $y = m x + b$
+    === Slope
+    $ m = (Delta y) / (Delta x) = (y_2-y_1) / (x_2-x_1) $ ], [=== Point-Slope
+    $y - y_1 = m (x - x_1)$
 
-=== Point-Slope Form $y - y_1 = m(x - x_1)$
-
-=== Point-Point Form
-$ y - y_1 = (y_2 - y_1) / (x_2 - x_1) (x - x_1) $
+    === Point-Point
+    $ y - y_1 = (y_2-y_1) / (x_2-x_1) (x - x_1) $ ]
+  )
+)
 
 == Quadratics
 
-=== Quadratic Equation
+=== Quadratic Equations
 
-$ x = (-b pm sqrt(b^2 - 4 a c)) / (2a) $
-
-If you let $D = b^2 - 4 a c$
-
-+ $D > 0 ==>$ 2 real solutions
-+ $D = 0 ==>$ 1 real solution
-+ $D < 0 ==>$ no real solutions
+#grid(
+  grid(
+    columns: 1,
+    [==== Standard Form $a x^2 + b x + c$],
+    [==== Vertex Form $a(x - h)^2 + k$],
+    $ x = (-b pm sqrt(b^2 - 4 a c)) / (2a) $
+  ),
+  align(left)[Let $D = b^2 - 4 a c,$
+  + $D > 0 ==>$ 2 real solutions
+  + $D = 0 ==>$ 1 real solution
+  + $D < 0 ==>$ no real solutions]
+)
 
 === Minimum and Maximum Values
 
@@ -161,10 +173,10 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       m "rad" & = (180 / pi m)° $
   ], [
 
-    === Co-function
-    $ cos x & = sin(90-x) \
-      sin x & = cos(90-x) \
-      tan x & = cot(90-x) $
+    === Co-Function
+    $ sin x & = cos (90-x) \
+      sec x & = csc (90-x) \
+      tan x & = cot (90-x) $
   ], [
 
     === Pythagorean
@@ -175,12 +187,12 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 )
 
 #grid(
-  [#align(center)[=== Negative]
+  [#align(center)[=== Even-Odd]
   #align(center)[#grid(
     columns: (auto, auto),
     rows: auto,
     gutter: 10pt,
-    ..($sin$, $csc$, $cos$, $sec$, $tan$, $cot$).map(fn => $ fn (-x) = -fn x $)
+    ..($sin$, $cos$, $tan$, $cot$, $sec$, $csc$).zip(range(1, 7)).map(((fn, n)) => if calc.rem(n, 2) == 1 { $fn (-x) = -fn x$ } else { $fn (-x) = fn (x)$ })
   )] ],
   [
     #align(center)[=== Sum to Difference]
@@ -212,18 +224,17 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 #align(center)[=== Sum to Product]
 
 #grid(
-  columns: (auto, auto),
-  $ sin x pm sin y & =   & 2 & sin & ((x pm y) / 2) & cos & ((x mp y) / 2) \
-    cos x + cos y  & =   & 2 & cos & ((x + y) / 2)  & cos & ((x - y) / 2)  \
-    cos x - cos y  & = - & 2 & sin & ((x + y) / 2)  & sin & ((x - y) / 2) $, [
-    $ tan x pm tan y & = (sin(x pm y)) / (cos x cos y), x != 90° "and" 270° $
-    $ cot x pm cot y & = (sin(y pm x)) / (sin x sin y), x & != 180° & "and" x != 360° $
-  ]
+  columns: (1.5fr, 1fr),
+  align: horizon + center,
+  $ sin x + sin y & =   & 2 & sin & ((x + y) / 2) & cos & ((x - y) / 2) \
+    sin x - sin y & =   & 2 & sin & ((x - y) / 2) & cos & ((x + y) / 2) \
+    cos x + cos y & =   & 2 & cos & ((x + y) / 2) & cos & ((x - y) / 2) \
+    cos x - cos y & = - & 2 & sin & ((x + y) / 2) & sin & ((x - y) / 2) $, $ tan x pm tan y & = (sin(x pm y)) / (cos x cos y) \
+    "where"        & x / (90°) mod 2 != 1            \
+                                                     \
+    cot x pm cot y & = (sin(y pm x)) / (sin x sin y) \
+    "where"        & x / (90°) mod 2 != 2 $
 )
-
-#align(left)[ $ "(1) where" x & != 90°  & "and" x != 270° \
-  "(2) where" x & != 180° & "and" x != 360° $]
-
 #align(center)[=== Product to Sum]
 
 $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
@@ -237,7 +248,7 @@ $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
 
     === Law of Sines
     $ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
-    $ "area" = 1 / 2 a b sin A $ ],
+    $ "Area" = 1 / 2 a b sin A $ ],
   [
 
     === Law of Cosines
@@ -273,16 +284,17 @@ $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
 )
 
 === Regular Polygons
-#align(horizon)[#grid(
-  columns: (1fr, 1fr),
-  $ "Sum of Interior Angles" = 180 (n - 2) degree $, $A = 1 / 2 dot a dot P", where " P = n dot s" and "a = "distance from the center to the middle of a side"$
-)]
+#grid(
+  align: center + horizon,
+  $ "Sum of Interior Angles" = 180 (n - 2) degree $,
+  $ "Area" = 1 / 2 dot "Apothem" dot "Perimeter" $
+)
 
 === Volumes
-#align(horizon)[#grid(
+#grid(
   columns: (1fr, 1fr, 1fr),
   $ V_"Cylinder" = pi r^2 h $, $ V_"Cone" = 1 / 3 pi r^2 h $, $ V_"Sphere" = 4 / 3 pi r^3 $
-)]
+)
 
 === Triangle Similarity
 Two triangles $triangle A B C "and" triangle D E F$ are similar if
