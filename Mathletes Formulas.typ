@@ -154,13 +154,14 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 #figure(caption: [Inverse Functions], table(
   inset: 8pt,
   columns: (auto, auto, auto),
+  align: center + horizon,
   table.header([Function], [Domain], [Range]),
-  $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $[-pi / 2, pi / 2]$,
-  $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $[0, pi / 2]$,
-  $tan^(-1) "/" arctan$,   $bb(R)$,                   $(-pi / 2, pi / 2)$,
-  $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $[-pi / 2, 0) union (0, pi / 2]$,
-  $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $[0, pi / 2) union (pi / 2, pi]$,
-  $cot^(-1) "/" "arccot"$, $bb(R)$,                   $(0, pi)$,
+  $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $ [(-pi / 2), pi / 2] $,
+  $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $ [0, pi / 2] $,
+  $tan^(-1) "/" arctan$,   $bb(R)$,                   $ (-pi / 2, pi / 2) $,
+  $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $ [-pi / 2, 0) union (0, pi / 2] $,
+  $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $ [0, pi / 2) union (pi / 2, pi] $,
+  $cot^(-1) "/" "arccot"$, $bb(R)$,                   $ (0, pi) $,
 ))
 
 #figure(caption: [Common Values], table(
