@@ -384,36 +384,38 @@ When $b = 0$, the number $a + b i$ is a real number. When $b != 0$, the number $
 
 $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 
-== Relationships
-
-#align(center)[ === Exponential
+== Exponential and Logarithmic Relationships
 
 #grid(
-  columns: (auto, auto),
-  gutter: 32pt,
-  $ a^0           & = 1           \
-    a^m dot a^n   & = a^(m + n)   \
-    (a^m) / (a^n) & = a^(m - n)   \
-    (a b)^n       & = a^n dot b^n $, $
-    (a / b)^n     & = (a^n) / (b^n) \
-    (a^m)^n       & = a^(m \cdot n) \
-    a^((1) / (n)) & = root(n, a)    \
-    a^m = a^n     & ==> m = n $
+  align: center + horizon,
+  [ === Exponential
+
+  #grid(
+    columns: (auto, auto),
+    gutter: 32pt,
+    $ a^0           & = 1           \
+      a^m dot a^n   & = a^(m + n)   \
+      (a^m) / (a^n) & = a^(m - n)   \
+      (a b)^n       & = a^n dot b^n $, $
+      (a / b)^n     & = (a^n) / (b^n) \
+      (a^m)^n       & = a^(m \cdot n) \
+      a^((1) / (n)) & = root(n, a)    \
+      a^m = a^n     & ==> m = n $
+  )],
+  [=== Logarithmic
+
+  #grid(
+    columns: (auto, auto),
+    gutter: 32pt,
+    $ log_a 1     & = 0         \
+      log_a a     & = 1         \
+      log x       & = log_(10)x \
+      ln x        & = log_e x   \
+      y = log_b x & ==> b^y = x \
+      a^(log_a b) & = b $, $ log a b^n   & = n log a b         \
+      log a^n b   & = 1 / n log a b     \
+      log_n a b   & = log_n a + log_n b \
+      log_n a / b & = log_n a - log_n b \
+      log_n a     & = log_n b ==> a = b $
+  )]
 )
-
-=== Logarithmic
-
-#grid(
-  columns: (auto, auto),
-  gutter: 32pt,
-  $ log_a 1     & = 0         \
-    log_a a     & = 1         \
-    log x       & = log_(10)x \
-    ln x        & = log_e x   \
-    y = log_b x & ==> b^y = x \
-    a^(log_a b) & = b $, $ log a b^n   & = n log a b         \
-    log a^n b   & = 1 / n log a b     \
-    log_n a b   & = log_n a + log_n b \
-    log_n a / b & = log_n a - log_n b \
-    log_n a     & = log_n b ==> a = b $
-)]
