@@ -34,7 +34,7 @@
   align: left,
   columns: (1fr, 1.1fr),
   [ For polynomials of degree one, the variable $m$ is used to refer to the slope of the lines drawn by their graphs.
-  Parallel lines have equivalent slopes, while perpendicular lines have slopes that are reciprocals of one another ($m perp 1 / m$).], grid(
+  Parallel lines have equivalent slopes, while perpendicular lines have slopes that are negative reciprocals of one another ($m perp - 1 / m$).], grid(
     align: center + horizon,
     columns: (auto, auto),
     column-gutter: 40pt,
