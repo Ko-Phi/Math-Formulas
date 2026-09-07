@@ -132,40 +132,62 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 == Functions
 
 #grid(
-  columns: (1fr, 1fr, 1fr),
-  align(horizon)[
-    $ sin x & = "opposite" / "hypotenuse"                   \
-      cos x & = "adjacent" / "hypotenuse"                   \
-      tan x & = "opposite" / "adjacent" = (sin x) / (cos x) $
-  ], align(horizon)[$ csc x & = 1 / (sin x) \
-    sec x & = 1 / (cos x) \
-    cot x & = 1 / (tan x) $ ], align(horizon)[
-    #figure(table(
-      inset: 8pt,
-      columns: (1fr, 1fr, 1fr),
-      table.header([Function], [Domain], [Range]),
-      $sin^(-1)$, $[-1, 1]$, $[-90°, 90°]$,
-      $cos^(-1)$, $[-1, 1]$, $[0°, 180°]$,
-      $tan^(-1)$, $bb(R)$,   $[-90°, 90°]$,
-      $cot^(-1)$, $bb(R)$,   $[0°, 180°]$,
-    ))
-  ]
+  columns: (1fr, 1fr),
+  align: center + horizon,
+  grid(
+    $ sin x & = "opposite" / "hypotenuse" \
+      cos x & = "adjacent" / "hypotenuse" \
+      tan x & = "opposite" / "adjacent" $,
+    $ csc x & = "hypotenuse" / "opposite" \
+      sec x & = "hypotenuse" / "adjacent" \
+      cot x & = "adjacent" / "opposite" $
+  ), grid(
+    columns: (auto, auto),
+    $ sin x & = y / 1 = y \
+      cos x & = x / 1 = x \
+      tan x & = y / x $, $ csc x & = 1 / y \
+      sec x & = 1 / x \
+      cot x & = x / y $
+  ),
 )
 
-#figure(table(
+#figure(caption: [Functions], table(
   inset: 8pt,
-  columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  columns: (auto, auto, auto, auto),
+  table.header([Function], [Domain], [Range], [Period]),
+  $sin$, $RR$,                               $[-1, 1]$,                 $2 pi$,
+  $cos$, $RR$,                               $[-1, 1]$,                 $2 pi$,
+  $tan$, ${x | x in RR, x mod pi != 0}$,     $RR$,                      $pi$,
+  $csc$, ${x | x in RR, x mod pi != 1 / 2}$, $(-oo, -1] union [1, oo)$, $2 pi$,
+  $sec$, ${x | x in RR, x mod pi != 0}$,     $(-oo, -1] union [1, oo)$, $2 pi$,
+  $cot$, ${x | x in RR, x mod pi != 1 / 2}$, $RR$,                      $pi$,
+))
+#figure(caption: [Inverse Functions], table(
+  inset: 8pt,
+  columns: (auto, auto, auto),
+  table.header([Function], [Domain], [Range]),
+  $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $[-90°, 90°]$,
+  $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $[0°, 180°]$,
+  $tan^(-1) "/" arctan$,   $bb(R)$,                   $[-90°, 90°]$,
+  $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $[-90°, 90°]$,
+  $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $[0°, 180°]$,
+  $cot^(-1) "/" "arccot"$, $bb(R)$,                   $[0°, 180°]$,
+))
+
+#figure(caption: [Common Values], table(
+  inset: 8pt,
+  columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
   align: center + horizon,
   table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
   $sin$, $0$, $1$,             $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$,     $0$,  $-1$,    $0$,
   $cos$, $1$, $ sqrt(3) / 2 $, $ sqrt(2) / 2 $, $ 1 / 2 $,       $0$,     $-1$, $0$,     $1$,
-  $cos$, $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$,
+  $cos$, $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$
 ))
 
 == Identities
 #grid(
-  columns: (1fr, 1fr, 1fr),
-  align: center,
+  columns: (1fr, 1.4fr, 1fr),
+  align: center + horizon,
   [
 
     === Radians and Degrees
@@ -173,11 +195,16 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       m "rad" & = (180 / pi m)° $
   ], [
 
-    === Co-Function
-    $ sin x & = cos (90-x) \
-      sec x & = csc (90-x) \
-      tan x & = cot (90-x) $
-  ], [
+    === Reciprocals
+    #grid(
+      columns: (auto, auto),
+      column-gutter: 8pt,
+      $ csc x = (sin x)^(-1) \
+      sec x = (cos x)^(-1) \
+      cot x = (tan x)^(-1) $, $ sin x = (csc x)^(-1) \
+      cos x = (sec x)^(-1) \
+      tan x = (cot x)^(-1) $,
+    ) ], [
 
     === Pythagorean
     $ sin^2x + cos^2x = 1 \
@@ -199,9 +226,9 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   )] ],
   [
     #align(center)[=== Sum-to-Difference]
-    $ sin(x pm y) & = sin x cos y pm cos x sin y    \
-      cos(x pm y) & = cos x cos y pm sin x sin y    \
-      tan(x pm y) & = (sin(x pm y)) / (cos(x pm y)) $
+    $ sin(x pm y) & = sin x cos y pm cos x sin y            \
+      cos(x pm y) & = cos x cos y pm sin x sin y            \
+      tan(x pm y) & = (tan x pm tan y) / (1 mp tan x tan y) $
   ]
 )
 
@@ -210,16 +237,16 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   [
 
     === Half-Angle
-    $ sin (x / 2) & = pm sqrt((1 - cos x) / 2)             & "*" \
-      sin (x / 2) & = pm sqrt((1 + cos x) / 2)             & "*" \
-      tan (x / 2) & = pm (sin (x div 2)) / (cos (x div 2)) & "*" $
+    $ sin (x / 2) & = pm sqrt((1 - cos x) / 2)           & "*" \
+      sin (x / 2) & = pm sqrt((1 + cos x) / 2)           & "*" \
+      tan (x / 2) & = pm sqrt((1 - cos x) / (1 + cos x)) & "*" $
   ],
   [
 
     === Double-Angle
     $ sin 2x                   & = 2 sin x cos x               \
       cos 2x = cos^2 x-sin^2 x & = 2cos^2 x - 1 = 1 - 2sin^2 x \
-      tan 2x                   & = (sin 2x) / (cos 2x) $
+      tan 2x                   & = (2 tan x) / (1 - tan^2 x) $
     #align(left)[\* where you consider the angle's location to determine the sign]
   ]
 )
@@ -230,7 +257,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   columns: (1.5fr, 1fr),
   align: horizon + center,
   $ sin x + sin y & =   & 2 & sin & ((x + y) / 2) & cos & ((x - y) / 2) \
-    sin x - sin y & =   & 2 & sin & ((x - y) / 2) & cos & ((x + y) / 2) \
+    sin x - sin y & =   & 2 & cos & ((x + y) / 2) & sin & ((x - y) / 2) \
     cos x + cos y & =   & 2 & cos & ((x + y) / 2) & cos & ((x - y) / 2) \
     cos x - cos y & = - & 2 & sin & ((x + y) / 2) & sin & ((x - y) / 2) $, $ tan x pm tan y & = (sin(x pm y)) / (cos x cos y) \
     "where"        & x / (90°) mod 2 != 1            \
@@ -238,26 +265,35 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     cot x pm cot y & = (sin(y pm x)) / (sin x sin y) \
     "where"        & x / (90°) mod 2 != 2 $
 )
-#align(center)[=== Product-to-Sum]
 
-$ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
-  cos x cos y & = (cos (x+y) + cos (x-y)) / 2 \
-  sin x cos y & = (sin (x+y) + sin (x-y)) / 2 $
+#grid(
+  align: horizon + center,
+  [=== Product-to-Sum
+  $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
+    cos x cos y & = (cos (x+y) + cos (x-y)) / 2 \
+    sin x cos y & = (sin (x+y) + sin (x-y)) / 2 $],
+  [=== Co-Function
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 0pt,
+    $ sin & (90-x) & = cos x \
+      sec & (90-x) & = csc x \
+      tan & (90-x) & = cot x $, $ cos & (90-x) & = sin x \
+      csc & (90-x) & = sec x \
+      cot & (90-x) & = tan x $,
+  )]
+)
 
 == Laws
 
 #grid(
-  [
-
-    === Law of Sines
-    $ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
-    $ "Area" = 1 / 2 a b sin A $ ],
-  [
-
-    === Law of Cosines
-    $ a^2 = b^2 + c^2 - 2 b c cos A $
-    $ cos A = (b^2 + c^2 - a^2) / (2 b c) $
-  ]
+  columns: (1fr, 1fr, 1fr),
+  [=== Law of Sines
+  $ (sin A) / a = (sin B) / b = (sin C) / c $
+  $ "Area" = 1 / 2 a b sin A $ ], [=== Law of Cosines
+  $ a^2 = b^2 + c^2 - 2 b c cos A $
+  $ cos A = (b^2 + c^2 - a^2) / (2 b c) $ ], [=== Law of Tangents
+  $ (a - b) / (a + b) = (tan (1 / 2 (A - B))) / (tan (1 / 2 (A + B))) $ ],
 )
 
 = Graphs and Geometry
