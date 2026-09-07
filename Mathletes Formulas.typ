@@ -1,8 +1,6 @@
 #set enum(numbering: "1.a.", spacing: 1.5em, indent: 1em)
 
 #show heading: set block(below: 1em)
-#show heading.where(level: 1): set block(below: 1em)
-#show heading.where(level: 2): set block(below: 1em)
 #show heading.where(level: 3): set block(below: 1.5em)
 #show heading.where(level: 3): set heading(numbering: none, outlined: false)
 #show heading.where(level: 4): set heading(numbering: none, outlined: false)
@@ -60,28 +58,28 @@ $ x = (-b plus.minus sqrt(b^2 - 4 a c)) / (2a) $
 
 If you let $D = b^2 - 4 a c$
 
-+ $D > 0 arrow.r$ 2 real solutions
-+ $D = 0 arrow.r$ 1 real solution
-+ $D < 0 arrow.r$ no real solutions
++ $D > 0 ==>$ 2 real solutions
++ $D = 0 ==>$ 1 real solution
++ $D < 0 ==>$ no real solutions
 
 === Minimum and Maximum Values
 
 Consider the function $f(x) = a x^2 + b x + c$ with vertex $(-b / 2a, f(-b / 2a))$
 
-+ $a > 0 arrow.r f$ has a _minimum_ at $x = -b / 2a$ The minimum value is $f(-b / 2a)$
-+ $a > 0 arrow.r f$ has a _maximum_ at $x = -b / 2a$ The maximum value is $f(-b / 2a)$
++ $a > 0 ==> f$ has a _minimum_ at $x = -b / 2a$ The minimum value is $f(-b / 2a)$
++ $a > 0 ==> f$ has a _maximum_ at $x = -b / 2a$ The maximum value is $f(-b / 2a)$
 
 == General Polynomials
 
-Let $n$ be a non-negative integer and let $a_n, a_(n-1), dots , a_2, a_1, a_0$ be real numbers such that $a_n eq.not 0$. The function:
-$ f(x) = a_n x^n + a_(n-1)x^(n-1) + dots + a_2x^2 + a_1x + a_0 $
+Let $n$ be a non-negative integer and let $a_n, a_(n-1), ... , a_2, a_1, a_0$ be real numbers such that $a_n != 0$. The function:
+$ f(x) = a_n x^n + a_(n-1)x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
 is a polynomial function of x with degree n.
 
 === Linear Factorization Theorem
 
 If $f(x)$ is a polynomial of degree $n$, where $n > 0$, then $f(x)$ has precisely $n$ linear factors
-$ f(x) = a_n (x-c_1) (x-c_2) dots (x-c_n) $
-where $c_1, c_2, dots, c_n$ are complex numbers.
+$ f(x) = a_n (x-c_1) (x-c_2) ... (x-c_n) $
+where $c_1, c_2, ..., c_n$ are complex numbers.
 
 === Rational Zero Test
 
@@ -92,29 +90,29 @@ where $p$ and $q$ have no commons factors other than 1, and
 
 === Conjugate Pairs
 
-Let $f$ be a polynomial function with _real coefficients_. If $a + b i$, where $b eq.not 0$, is zero of $f$, the complex conjugate $a - b i$ is also a zero of $f$.
+Let $f$ be a polynomial function with _real coefficients_. If $a + b i$, where $b != 0$, is zero of $f$, the complex conjugate $a - b i$ is also a zero of $f$.
 
 For polynomials with _integer coefficients_, $a + sqrt(b)$ being a zero implies $a - sqrt(b)$ is also a zero.
 
 === Roots
 
 Let $f$ be the polynomial
-$ f(x) = a_n x^n + a_(n-1) x^(n-1) + dots + a_2x^2 + a_1x + a_0 $
-#sideBySide($ text("The sum of all roots") = -a_n / a_(n-1) $, $ text("The product of all roots") = (-1)^n a_0 / a_n $)
+$ f(x) = a_n x^n + a_(n-1) x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
+#sideBySide($ "The sum of all roots" = -a_n / a_(n-1) $, $ "The product of all roots" = (-1)^n a_0 / a_n $)
 
 == Rational Functions
 
 Let $f$ be the rational function
 $ f(x) = N(x) / D(x) =
-    (a_n x^n + a_(n-1) x^(n-1) + dots + a_1 x + a_0) /
-    (b_n x^n + b_(m-1) x^(m-1) + dots + b_1 x + b_0) $
+    (a_n x^n + a_(n-1) x^(n-1) + ... + a_1 x + a_0) /
+    (b_n x^n + b_(m-1) x^(m-1) + ... + b_1 x + b_0) $
 where $N(x)$ and $D(x)$ have no common factors.
 
 + The graph of $f$ has _vertical_ asymptotes at the zeros of $D(x)$.
 + The graph of $f$ has at most one _horizontal asymptote_ determined by comparing the degrees of $N(x)$ and $D(x)$.
-  + $n < 0 arrow.r$ the line $y = 0$ is the horizontal asymptote.
-  + $n = 0 arrow.r$ the line $y = a_n / b_m$ is the horizontal asymptote.
-  + $n > 0 arrow.r$ there is no horizontal asymptote.
+  + $n < 0 ==>$ the line $y = 0$ is the horizontal asymptote.
+  + $n = 0 ==>$ the line $y = a_n / b_m$ is the horizontal asymptote.
+  + $n > 0 ==>$ there is no horizontal asymptote.
 
 Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ would then have a hole at $(c, f(c))$
 
@@ -152,14 +150,14 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   $cos$, $0$, $sqrt(3) / 3$, $1$,           $sqrt(3)$,     [undef], $0$,  [undef], $0$,
 ))
 
-#align(center)[== Identities]
+== Identities
 #grid(
   columns: (1fr, 1fr, 1fr),
   align(center)[
 
     === Radians and Degrees
-    $ n°            & = pi / 180n text("rad") \
-      m text("rad") & = (180 / pi m)° $
+    $ n°      & = pi / 180n "rad" \
+      m "rad" & = (180 / pi m)° $
   ], align(center)[
 
     === Co-function
@@ -175,46 +173,44 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   ]
 )
 
-#align(center)[=== Negative]
+#sideBySide([ #align(center)[=== Negative]
+  #align(center)[#grid(
+    columns: (1fr, 1fr),
+    rows: auto,
+    gutter: 10pt,
+    ..($sin$, $csc$, $cos$, $sec$, $tan$, $cot$).map(fn => $ fn (-x) = -fn x $)
+  )]
+], [ #align(center)[=== Sum to Difference]
+  $ sin(x plus.minus y) & = sin x cos y plus.minus cos x sin y            \
+    cos(x plus.minus y) & = cos x cos y plus.minus sin x sin y            \
+    tan(x plus.minus y) & = (sin(x plus.minus y)) / (cos(x plus.minus y)) $
+])
 
-#sideBySide($ sin (-x) & = -sin x \
-  cos (-x) & = -cos x \
-  tan (-x) & = -tan x $
-,
-$ csc (-x) & = -csc x \
-  sec (-x) & = -sec x \
-  cot (-x) & = -cot x $)
+#sideBySide(align(center)[
 
-#align(center)[=== Sum to Difference]
-
-$ sin(x plus.minus y) & = sin x cos y plus.minus cos x sin y            \
-  cos(x plus.minus y) & = cos x cos y plus.minus sin x sin y            \
-  tan(x plus.minus y) & = (sin(x plus.minus y)) / (cos(x plus.minus y)) $
-
-#align(center)[=== Half-Angle
-
-$ sin (x / 2) & = plus.minus sqrt((1 - cos x) / 2)         \
-  sin (x / 2) & = plus.minus sqrt((1 + cos x) / 2)         \
-  tan (x / 2) & = plus.minus (sin (x / 2)) / (cos (x / 2)) $
-where you consider the angle's location to determine the sign]
-
-#align(center)[=== Double-Angle]
-
+  === Half-Angle
+  $ sin (x / 2) & = plus.minus sqrt((1 - cos x) / 2)         & "*" \
+    sin (x / 2) & = plus.minus sqrt((1 + cos x) / 2)         & "*" \
+    tan (x / 2) & = plus.minus (sin (x / 2)) / (cos (x / 2)) & "*" $
+], align(center)[ === Double-Angle
 $ sin 2x                   & = 2 sin x cos x               \
   cos 2x = cos^2 x-sin^2 x & = 2cos^2 x - 1 = 1 - 2sin^2 x \
-  tan 2x                   & = (sin 2x) / (cos 2x) $
+  tan 2x                   & = (sin 2x) / (cos 2x)         \ $
+#align(left)[\* where you consider the angle's location to determine the sign]])
 
 #align(center)[=== Sum to Product]
 
-#sideBySide($ sin x plus.minus sin y & = 2 sin ((x plus.minus y) / 2) cos ((x minus.plus y) / 2) \
+#sideBySide(width: auto, gutter: 16pt,
+$ sin x plus.minus sin y & = 2 sin ((x plus.minus y) / 2) cos ((x minus.plus y) / 2) \
   cos x + cos y          & = 2 cos ((x + y) / 2) cos ((x - y) / 2)                   \
   cos x - cos y          & = -2 sin ((x + y) / 2) sin ((x - y) / 2) $
-,
-$ tan x plus.minus tan y & = (sin(x plus.minus y)) / (cos x cos y) text("(1)") \
-  cot x plus.minus cot y & = (sin(y plus.minus x)) / (sin x sin y) text("(2)") $)
+, [ #set math.equation(numbering: "(1)")
+  $ tan x plus.minus tan y & = (sin(x plus.minus y)) / (cos x cos y) $
+  $ cot x plus.minus cot y & = (sin(y plus.minus x)) / (sin x sin y) $
+])
 
-#align(left)[ $ text("(1) where") x & eq.not 90°  & text("and") x eq.not 270° \
-  text("(2) where") x & eq.not 180° & text("and") x eq.not 360° $]
+#align(left)[ $ "(1) where" x & != 90°  & "and" x != 270° \
+  "(2) where" x & != 180° & "and" x != 360° $]
 
 #align(center)[=== Product to Sum]
 
@@ -224,25 +220,32 @@ $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
 
 #align(center)[== Laws]
 
-#sideBySide([=== Law of Sines
+#sideBySide([
 
-$ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
-$ text("area") = 1 / 2 a b sin A $ ], [=== Law of Cosines
+  === Law of Sines
+  $ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
+  $ "area" = 1 / 2 a b sin A $ ], [
 
-$ a^2 = b^2 + c^2 - 2 b c cos A $
-$ cos A = (b^2 + c^2 - a^2) / (2 b c) $ ])
+  === Law of Cosines
+  $ a^2 = b^2 + c^2 - 2 b c cos A $
+  $ cos A = (b^2 + c^2 - a^2) / (2 b c) $
+])
 
 = Graphs and Geometry
 
 == Lines and Points
 
-#sideBySide([ === Distance
-$ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $], [ === Midpoint
-$ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $])
+#sideBySide([
+
+  === Distance
+  $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $ ], [
+
+  === Midpoint
+  $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $ ])
 
 #sideBySide([=== Perpendicular Bisector
 $ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $], [=== Pythagorean Theorem
-$ a^2 + b^2 = c^2 arrow.r c = sqrt(a^2 + b^2) $])
+$ a^2 + b^2 = c^2 ==> c = sqrt(a^2 + b^2) $])
 
 == Shapes
 
@@ -265,10 +268,10 @@ $ a^2 + b^2 = c^2 arrow.r c = sqrt(a^2 + b^2) $])
 )]
 
 === Triangle Similarity
-Two triangles $triangle A B C text("and") triangle D E F$ are similar if
+Two triangles $triangle A B C "and" triangle D E F$ are similar if
 #grid(
   columns: (1fr, 1fr, 1fr),
-  align(center)[==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $], align(center)[==== SAS $ (A B) / (D E) = (A C) / (D F) text("and") angle A = angle D $], align(center)[==== AA $ angle A = angle D text("and") angle B = angle E $]
+  align(center + horizon)[ ==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $], align(center + horizon)[ ==== SAS $ (A B) / (D E) = (A C) / (D F) "and" angle A = angle D $], align(center + horizon)[==== AA $ angle A = angle D "and" angle B = angle E $]
 )
 
 == Graph Manipulation
@@ -303,7 +306,7 @@ The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ m
 
 Let $a$ and $b$ be real numbers. The number $a + b i$ is a _complex number_ written in _standard form_. The number $a$ is the _real part_ and the number $b i$ is the _imaginary part_ of the complex number.
 
-When $b = 0$, the number $a + b i$ is a real number. When $b eq.not 0$, the number $a + b i$ is an _imaginary number_. A number ofr the form $b i$, where $b eq.not 0$, is a _pure imaginary number_.
+When $b = 0$, the number $a + b i$ is a real number. When $b != 0$, the number $a + b i$ is an _imaginary number_. A number ofr the form $b i$, where $b != 0$, is a _pure imaginary number_.
 
 $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 
@@ -321,20 +324,20 @@ $
   (a / b)^n     & = (a^n) / (b^n) \
   (a^m)^n       & = a^(m \cdot n) \
   a^((1) / (n)) & = root(n, a)    \
-  a^m = a^n     & arrow.r m = n $)]
+  a^m = a^n     & ==> m = n $)]
 
 #align(center)[=== Logarithmic]
 
 #align(center)[#sideBySide(width: auto, gutter: 32pt,
-$ log_a 1     & = 0             \
-  log_a a     & = 1             \
-  log x       & = log_(10)x     \
-  ln x        & = log_e x       \
-  y = log_b x & arrow.r b^y = x \
+$ log_a 1     & = 0         \
+  log_a a     & = 1         \
+  log x       & = log_(10)x \
+  ln x        & = log_e x   \
+  y = log_b x & ==> b^y = x \
   a^(log_a b) & = b $
 ,
-$ log a b^n   & = n log a b             \
-  log a^n b   & = 1 / n log a b         \
-  log_n a b   & = log_n a + log_n b     \
-  log_n a / b & = log_n a - log_n b     \
-  log_n a     & = log_n b arrow.r a = b $)]
+$ log a b^n   & = n log a b         \
+  log a^n b   & = 1 / n log a b     \
+  log_n a b   & = log_n a + log_n b \
+  log_n a / b & = log_n a - log_n b \
+  log_n a     & = log_n b ==> a = b $)]
