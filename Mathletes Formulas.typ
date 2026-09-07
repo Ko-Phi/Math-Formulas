@@ -1,9 +1,11 @@
 #set enum(numbering: "1.a.", spacing: 1.5em, indent: 1em)
 
 #show heading: set block(below: 1em)
-#show heading.where(level: 3): set block(below: 1.5em)
+#show heading.where(level: 3): set block(below: 1.5em, above: 1.5em)
 #show heading.where(level: 3): set heading(numbering: none, outlined: false)
 #show heading.where(level: 4): set heading(numbering: none, outlined: false)
+
+#set grid(align: center, columns: (1fr, 1fr), gutter: 16pt)
 
 #set page(numbering: "1", margin: 1in)
 #set heading(
@@ -11,17 +13,8 @@
 )
 #set text(font: "New Computer Modern")
 
-#let sideBySide(body1, body2, width: 1fr, gutter: 0pt) = {
-  grid(
-    columns: (width, width),
-    gutter: gutter,
-    align(center)[
-      #body1
-    ],
-    align(center)[
-      #body2 ]
-  )
-}
+#let pm = $plus.minus$
+#let mp = $minus.plus$
 
 #align(center)[
   #text(size: 24pt, weight: "bold")[Mathletes Formulas] \
@@ -54,7 +47,7 @@ $ y - y_1 = (y_2 - y_1) / (x_2 - x_1) (x - x_1) $
 
 === Quadratic Equation
 
-$ x = (-b plus.minus sqrt(b^2 - 4 a c)) / (2a) $
+$ x = (-b pm sqrt(b^2 - 4 a c)) / (2a) $
 
 If you let $D = b^2 - 4 a c$
 
@@ -86,7 +79,10 @@ where $c_1, c_2, ..., c_n$ are complex numbers.
 If the polynomial has _integer_ coefficients, then every rational zero of $f$ has the form $p / q$,
 where $p$ and $q$ have no commons factors other than 1, and
 
-#sideBySide($ p= "a factor of the constant term" a_0 $, $ q = a "factor of the leading coefficient" a_n $)
+#grid(
+  $ p= "a factor of the constant term" a_0 $,
+  $ q = a "factor of the leading coefficient" a_n $
+)
 
 === Conjugate Pairs
 
@@ -98,7 +94,10 @@ For polynomials with _integer coefficients_, $a + sqrt(b)$ being a zero implies 
 
 Let $f$ be the polynomial
 $ f(x) = a_n x^n + a_(n-1) x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
-#sideBySide($ "The sum of all roots" = -a_n / a_(n-1) $, $ "The product of all roots" = (-1)^n a_0 / a_n $)
+#grid(
+  $ "The sum of all roots" = -a_n / a_(n-1) $,
+  $ "The product of all roots" = (-1)^n a_0 / a_n $
+)
 
 == Rational Functions
 
@@ -144,27 +143,29 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 #figure(table(
   inset: 8pt,
   columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center + horizon,
   table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
-  $sin$, $0$, $1$,           $sqrt(2) / 2$, $sqrt(3) / 2$, $1$,     $0$,  $-1$,    $0$,
-  $cos$, $1$, $sqrt(3) / 2$, $sqrt(2) / 2$, $1 / 2$,       $0$,     $-1$, $0$,     $1$,
-  $cos$, $0$, $sqrt(3) / 3$, $1$,           $sqrt(3)$,     [undef], $0$,  [undef], $0$,
+  $sin$, $0$, $1$,             $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$,     $0$,  $-1$,    $0$,
+  $cos$, $1$, $ sqrt(3) / 2 $, $ sqrt(2) / 2 $, $ 1 / 2 $,       $0$,     $-1$, $0$,     $1$,
+  $cos$, $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$,
 ))
 
 == Identities
 #grid(
   columns: (1fr, 1fr, 1fr),
-  align(center)[
+  align: center,
+  [
 
     === Radians and Degrees
     $ n°      & = pi / 180n "rad" \
       m "rad" & = (180 / pi m)° $
-  ], align(center)[
+  ], [
 
     === Co-function
     $ cos x & = sin(90-x) \
       sin x & = cos(90-x) \
       tan x & = cot(90-x) $
-  ], align(center)[
+  ], [
 
     === Pythagorean
     $ sin^2x + cos^2x = 1 \
@@ -173,41 +174,52 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   ]
 )
 
-#sideBySide([ #align(center)[=== Negative]
+#grid(
+  [#align(center)[=== Negative]
   #align(center)[#grid(
-    columns: (1fr, 1fr),
+    columns: (auto, auto),
     rows: auto,
     gutter: 10pt,
     ..($sin$, $csc$, $cos$, $sec$, $tan$, $cot$).map(fn => $ fn (-x) = -fn x $)
-  )]
-], [ #align(center)[=== Sum to Difference]
-  $ sin(x plus.minus y) & = sin x cos y plus.minus cos x sin y            \
-    cos(x plus.minus y) & = cos x cos y plus.minus sin x sin y            \
-    tan(x plus.minus y) & = (sin(x plus.minus y)) / (cos(x plus.minus y)) $
-])
+  )] ],
+  [
+    #align(center)[=== Sum to Difference]
+    $ sin(x pm y) & = sin x cos y pm cos x sin y    \
+      cos(x pm y) & = cos x cos y pm sin x sin y    \
+      tan(x pm y) & = (sin(x pm y)) / (cos(x pm y)) $
+  ]
+)
 
-#sideBySide(align(center)[
+#grid(
+  align: center,
+  [
 
-  === Half-Angle
-  $ sin (x / 2) & = plus.minus sqrt((1 - cos x) / 2)         & "*" \
-    sin (x / 2) & = plus.minus sqrt((1 + cos x) / 2)         & "*" \
-    tan (x / 2) & = plus.minus (sin (x / 2)) / (cos (x / 2)) & "*" $
-], align(center)[ === Double-Angle
-$ sin 2x                   & = 2 sin x cos x               \
-  cos 2x = cos^2 x-sin^2 x & = 2cos^2 x - 1 = 1 - 2sin^2 x \
-  tan 2x                   & = (sin 2x) / (cos 2x)         \ $
-#align(left)[\* where you consider the angle's location to determine the sign]])
+    === Half-Angle
+    $ sin (x / 2) & = pm sqrt((1 - cos x) / 2)         & "*" \
+      sin (x / 2) & = pm sqrt((1 + cos x) / 2)         & "*" \
+      tan (x / 2) & = pm (sin (x / 2)) / (cos (x / 2)) & "*" $
+  ],
+  [
+
+    === Double-Angle
+    $ sin 2x                   & = 2 sin x cos x               \
+      cos 2x = cos^2 x-sin^2 x & = 2cos^2 x - 1 = 1 - 2sin^2 x \
+      tan 2x                   & = (sin 2x) / (cos 2x) $
+    #align(left)[\* where you consider the angle's location to determine the sign]
+  ]
+)
 
 #align(center)[=== Sum to Product]
 
-#sideBySide(width: auto, gutter: 16pt,
-$ sin x plus.minus sin y & = 2 sin ((x plus.minus y) / 2) cos ((x minus.plus y) / 2) \
-  cos x + cos y          & = 2 cos ((x + y) / 2) cos ((x - y) / 2)                   \
-  cos x - cos y          & = -2 sin ((x + y) / 2) sin ((x - y) / 2) $
-, [ #set math.equation(numbering: "(1)")
-  $ tan x plus.minus tan y & = (sin(x plus.minus y)) / (cos x cos y) $
-  $ cot x plus.minus cot y & = (sin(y plus.minus x)) / (sin x sin y) $
-])
+#grid(
+  columns: (auto, auto),
+  $ sin x pm sin y & =   & 2 & sin & ((x pm y) / 2) & cos & ((x mp y) / 2) \
+    cos x + cos y  & =   & 2 & cos & ((x + y) / 2)  & cos & ((x - y) / 2)  \
+    cos x - cos y  & = - & 2 & sin & ((x + y) / 2)  & sin & ((x - y) / 2) $, [
+    $ tan x pm tan y & = (sin(x pm y)) / (cos x cos y), x != 90° "and" 270° $
+    $ cot x pm cot y & = (sin(y pm x)) / (sin x sin y), x & != 180° & "and" x != 360° $
+  ]
+)
 
 #align(left)[ $ "(1) where" x & != 90°  & "and" x != 270° \
   "(2) where" x & != 180° & "and" x != 360° $]
@@ -218,34 +230,39 @@ $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
   cos x cos y & = (cos (x+y) + cos (x-y)) / 2 \
   sin x cos y & = (sin (x+y) + sin (x-y)) / 2 $
 
-#align(center)[== Laws]
+== Laws
 
-#sideBySide([
+#grid(
+  [
 
-  === Law of Sines
-  $ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
-  $ "area" = 1 / 2 a b sin A $ ], [
+    === Law of Sines
+    $ 2r = a / (sin A) = b / (sin B) = c / (sin C) $
+    $ "area" = 1 / 2 a b sin A $ ],
+  [
 
-  === Law of Cosines
-  $ a^2 = b^2 + c^2 - 2 b c cos A $
-  $ cos A = (b^2 + c^2 - a^2) / (2 b c) $
-])
+    === Law of Cosines
+    $ a^2 = b^2 + c^2 - 2 b c cos A $
+    $ cos A = (b^2 + c^2 - a^2) / (2 b c) $
+  ]
+)
 
 = Graphs and Geometry
 
 == Lines and Points
 
-#sideBySide([
+#grid(
+  [=== Distance
+  $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $ ],
+  [=== Midpoint
+  $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $ ]
+)
 
-  === Distance
-  $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $ ], [
-
-  === Midpoint
-  $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $ ])
-
-#sideBySide([=== Perpendicular Bisector
-$ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $], [=== Pythagorean Theorem
-$ a^2 + b^2 = c^2 ==> c = sqrt(a^2 + b^2) $])
+#grid(
+  [=== Perpendicular Bisector
+  $ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $],
+  [=== Pythagorean Theorem
+  $ a^2 + b^2 = c^2 ==> c = sqrt(a^2 + b^2) $]
+)
 
 == Shapes
 
@@ -281,12 +298,12 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
   columns: 3,
   align: horizon,
   table.header([Transformation], [Conditions], [Description]),
-  $g(x) & = f(x plus.minus c)$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
-  $g(x) & = f(x) plus.minus c$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
-  $g(x) & = c f(x)$,            [$ c < 0 $ $ c > 0 $], [$ "vertical compress by a factor of" c $ $ "vertical stretch by a factor of" c $],
-  $g(x) & = f(c x)$,            [$ c < 0 $ $ c > 0 $], [$ "horizontal stretch by a factor of" c $ $"horizontal compress by a factor of" c$],
-  $g(x) & = -f(x)$,             [],                    [$ "reflect about the x-axis" $],
-  $g(x) & = f(-x)$,             [],                    [$ "reflect about the y-axis" $]
+  $g(x) & = f(x pm c)$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
+  $g(x) & = f(x) pm c$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
+  $g(x) & = c f(x)$,    [$ c < 0 $ $ c > 0 $], [$ "vertical compress by a factor of" c $ $ "vertical stretch by a factor of" c $],
+  $g(x) & = f(c x)$,    [$ c < 0 $ $ c > 0 $], [$ "horizontal stretch by a factor of" c $ $"horizontal compress by a factor of" c$],
+  $g(x) & = -f(x)$,     [],                    [$ "reflect about the x-axis" $],
+  $g(x) & = f(-x)$,     [],                    [$ "reflect about the y-axis" $]
 )]
 
 = Miscellaneous
@@ -294,11 +311,17 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
 == Inverse Functions
 
 Let $f$ and $g$ be two function such that
-#sideBySide($ f(g(x)) = x "for all" x "in the domain of" g $, $ g(f(x)) = x "for all" x "in the domain of" f $)
+#grid(
+  $ f(g(x)) = x "for all" x "in the domain of" g $,
+  $ g(f(x)) = x "for all" x "in the domain of" f $
+)
 
 Under these conditions, the function $g$ is the _inverse function_ of the function $f$ (and vice-versa). The function $g$ can then be denoted as $f^(-1)$. So,
 
-#sideBySide($ f(f^(-1)(x)) = x $, $ f^(-1)(f(x)) = x $)
+#grid(
+  $ f(f^(-1)(x)) = x $,
+  $ f^(-1)(f(x)) = x $
+)
 
 The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ must be equal to the domain of $f^(-1)$.
 
@@ -312,32 +335,34 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 
 == Relationships
 
-#align(center)[=== Exponential]
+#align(center)[ === Exponential
 
-#align(center)[#sideBySide(width: auto, gutter: 32pt,
-$ a^0           & = 1           \
-  a^m dot a^n   & = a^(m + n)   \
-  (a^m) / (a^n) & = a^(m - n)   \
-  (a b)^n       & = a^n dot b^n $
-,
-$
-  (a / b)^n     & = (a^n) / (b^n) \
-  (a^m)^n       & = a^(m \cdot n) \
-  a^((1) / (n)) & = root(n, a)    \
-  a^m = a^n     & ==> m = n $)]
+#grid(
+  columns: (auto, auto),
+  gutter: 32pt,
+  $ a^0           & = 1           \
+    a^m dot a^n   & = a^(m + n)   \
+    (a^m) / (a^n) & = a^(m - n)   \
+    (a b)^n       & = a^n dot b^n $, $
+    (a / b)^n     & = (a^n) / (b^n) \
+    (a^m)^n       & = a^(m \cdot n) \
+    a^((1) / (n)) & = root(n, a)    \
+    a^m = a^n     & ==> m = n $
+)
 
-#align(center)[=== Logarithmic]
+=== Logarithmic
 
-#align(center)[#sideBySide(width: auto, gutter: 32pt,
-$ log_a 1     & = 0         \
-  log_a a     & = 1         \
-  log x       & = log_(10)x \
-  ln x        & = log_e x   \
-  y = log_b x & ==> b^y = x \
-  a^(log_a b) & = b $
-,
-$ log a b^n   & = n log a b         \
-  log a^n b   & = 1 / n log a b     \
-  log_n a b   & = log_n a + log_n b \
-  log_n a / b & = log_n a - log_n b \
-  log_n a     & = log_n b ==> a = b $)]
+#grid(
+  columns: (auto, auto),
+  gutter: 32pt,
+  $ log_a 1     & = 0         \
+    log_a a     & = 1         \
+    log x       & = log_(10)x \
+    ln x        & = log_e x   \
+    y = log_b x & ==> b^y = x \
+    a^(log_a b) & = b $, $ log a b^n   & = n log a b         \
+    log a^n b   & = 1 / n log a b     \
+    log_n a b   & = log_n a + log_n b \
+    log_n a / b & = log_n a - log_n b \
+    log_n a     & = log_n b ==> a = b $
+)]
