@@ -31,24 +31,13 @@
 
 == Linear Equations
 #grid(
-  align: left,
-  columns: (1fr, 1.1fr),
-  [ For polynomials of degree one, the variable $m$ is used to refer to the slope of the lines drawn by their graphs.
-  Parallel lines have equivalent slopes, while perpendicular lines have slopes that are negative reciprocals of one another ($m perp - 1 / m$).], grid(
-    align: center + horizon,
-    columns: (auto, auto),
-    column-gutter: 40pt,
-    [=== Slope-Intercept
-    $y = m x + b$
-
-    === Slope
-    $ m = (Delta y) / (Delta x) = (y_2-y_1) / (x_2-x_1) $ ], [=== Point-Slope
-    $y - y_1 = m (x - x_1)$
-
-    === Point-Point
-    $ y - y_1 = (y_2-y_1) / (x_2-x_1) (x - x_1) $ ]
-  )
+  align: left + horizon,
+  columns: (auto, 1fr, auto, 1fr),
+  column-gutter: 20pt,
+  [=== Slope-Intercept], $y = m x + b$,           [=== Slope],       $ m = (Delta y) / (Delta x) = (y_2-y_1) / (x_2-x_1) $,
+  [=== Point-Slope],     $y - y_1 = m (x - x_1)$, [=== Point-Point], $ y - y_1 = (y_2-y_1) / (x_2-x_1) (x - x_1) $
 )
+Parallel lines have equivalent slopes, while perpendicular lines have slopes that are negative reciprocals ($m perp - 1 / m$)
 
 == Quadratics
 
@@ -135,19 +124,19 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   columns: (1fr, 1fr),
   align: center + horizon,
   grid(
-    $ sin x & = "opposite" / "hypotenuse" \
-      cos x & = "adjacent" / "hypotenuse" \
-      tan x & = "opposite" / "adjacent" $,
-    $ csc x & = "hypotenuse" / "opposite" \
-      sec x & = "hypotenuse" / "adjacent" \
-      cot x & = "adjacent" / "opposite" $
+    $ sin θ & = "opposite" / "hypotenuse" \
+      cos θ & = "adjacent" / "hypotenuse" \
+      tan θ & = "opposite" / "adjacent" $,
+    $ csc θ & = "hypotenuse" / "opposite" \
+      sec θ & = "hypotenuse" / "adjacent" \
+      cot θ & = "adjacent" / "opposite" $
   ), grid(
     columns: (auto, auto),
-    $ sin x & = y / 1 = y \
-      cos x & = x / 1 = x \
-      tan x & = y / x $, $ csc x & = 1 / y \
-      sec x & = 1 / x \
-      cot x & = x / y $
+    $ sin θ & = y / 1 = y \
+      cos θ & = x / 1 = x \
+      tan θ & = y / x $, $ csc θ & = 1 / y \
+      sec θ & = 1 / x \
+      cot θ & = x / y $
   ),
 )
 
@@ -157,21 +146,21 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   table.header([Function], [Domain], [Range], [Period]),
   $sin$, $RR$,                               $[-1, 1]$,                 $2 pi$,
   $cos$, $RR$,                               $[-1, 1]$,                 $2 pi$,
-  $tan$, ${x | x in RR, x mod pi != 0}$,     $RR$,                      $pi$,
-  $csc$, ${x | x in RR, x mod pi != 1 / 2}$, $(-oo, -1] union [1, oo)$, $2 pi$,
-  $sec$, ${x | x in RR, x mod pi != 0}$,     $(-oo, -1] union [1, oo)$, $2 pi$,
-  $cot$, ${x | x in RR, x mod pi != 1 / 2}$, $RR$,                      $pi$,
+  $tan$, ${x | x in RR, x mod pi != 1 / 2}$, $RR$,                      $pi$,
+  $csc$, ${x | x in RR, x mod pi != 0}$,     $(-oo, -1] union [1, oo)$, $2 pi$,
+  $sec$, ${x | x in RR, x mod pi != 1 / 2}$, $(-oo, -1] union [1, oo)$, $2 pi$,
+  $cot$, ${x | x in RR, x mod pi != 0}$,     $RR$,                      $pi$,
 ))
 #figure(caption: [Inverse Functions], table(
   inset: 8pt,
   columns: (auto, auto, auto),
   table.header([Function], [Domain], [Range]),
-  $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $[-90°, 90°]$,
-  $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $[0°, 180°]$,
-  $tan^(-1) "/" arctan$,   $bb(R)$,                   $[-90°, 90°]$,
-  $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $[-90°, 90°]$,
-  $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $[0°, 180°]$,
-  $cot^(-1) "/" "arccot"$, $bb(R)$,                   $[0°, 180°]$,
+  $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $[-pi / 2, pi / 2]$,
+  $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $[0, pi / 2]$,
+  $tan^(-1) "/" arctan$,   $bb(R)$,                   $(-pi / 2, pi / 2)$,
+  $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $[-pi / 2, 0) union (0, pi / 2]$,
+  $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $[0, pi / 2) union (pi / 2, pi]$,
+  $cot^(-1) "/" "arccot"$, $bb(R)$,                   $(0, pi)$,
 ))
 
 #figure(caption: [Common Values], table(
@@ -186,114 +175,115 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
 == Identities
 #grid(
-  columns: (1fr, 1.4fr, 1fr),
-  align: center + horizon,
-  [
+  columns: (1fr),
+  row-gutter: 32pt,
+  grid(
+    columns: (1fr, 1.4fr, 1fr),
+    align: center + horizon,
+    [
 
-    === Radians and Degrees
-    $ n°      & = pi / 180n "rad" \
-      m "rad" & = (180 / pi m)° $
-  ], [
+      === Radians and Degrees
+      $ n°      & = pi / 180n "rad" \
+        m "rad" & = (180 / pi m)° $
+    ], [
 
-    === Reciprocals
-    #grid(
+      === Reciprocals
+      #grid(
+        columns: (auto, auto),
+        column-gutter: 8pt,
+        $ csc θ = (sin θ)^(-1) \
+        sec θ = (cos θ)^(-1) \
+        cot θ = (tan θ)^(-1) $, $ sin θ = (csc θ)^(-1) \
+        cos θ = (sec θ)^(-1) \
+        tan θ = (cot θ)^(-1) $,
+      ) ], [
+
+      === Pythagorean
+      $ sin^2θ + cos^2θ = 1 \
+      tan^2θ + 1 = sec^2θ \
+      1 + cot^2θ = csc^2θ $
+    ]
+  ),
+  grid(
+    [#align(center)[=== Even/Odd]
+    #align(center)[#grid(
       columns: (auto, auto),
-      column-gutter: 8pt,
-      $ csc x = (sin x)^(-1) \
-      sec x = (cos x)^(-1) \
-      cot x = (tan x)^(-1) $, $ sin x = (csc x)^(-1) \
-      cos x = (sec x)^(-1) \
-      tan x = (cot x)^(-1) $,
-    ) ], [
+      $ sin (-θ) & = - & sin θ \
+        cos (-θ) & =   & cos θ \
+        tan (-θ) & = - & tan θ $, $
+        csc (-θ) & = - & csc θ \
+        sec (-θ) & =   & sec θ \
+        cot (-θ) & = - & cot θ $,
+    )] ],
+    [
+      #align(center)[=== Sum-to-Difference]
+      $ sin(α pm β) & = sin α cos β pm cos α sin β            \
+        cos(α pm β) & = cos α cos β pm sin α sin β            \
+        tan(α pm β) & = (tan α pm tan β) / (1 mp tan α tan β) $
+    ]
+  ),
+  grid(
+    align: center,
+    [
 
-    === Pythagorean
-    $ sin^2x + cos^2x = 1 \
-    tan^2x + 1 = sec^2x \
-    1 + cot^2x = csc^2x $
-  ]
-)
+      === Half-Angle
+      $ sin (θ / 2) & = pm sqrt((1 - cos θ) / 2)           & "*" \
+        sin (θ / 2) & = pm sqrt((1 + cos θ) / 2)           & "*" \
+        tan (θ / 2) & = pm sqrt((1 - cos θ) / (1 + cos θ)) & "*" $
+    ],
+    [
 
-#grid(
-  [#align(center)[=== Even/Odd]
-  #align(center)[#grid(
-    columns: (auto, auto),
-    $ sin (-x) & = - & sin x \
-      cos (-x) & =   & cos x \
-      tan (-x) & = - & tan x $, $
-      csc (-x) & = - & csc x \
-      sec (-x) & =   & sec x \
-      cot (-x) & = - & cot x $,
-  )] ],
-  [
-    #align(center)[=== Sum-to-Difference]
-    $ sin(x pm y) & = sin x cos y pm cos x sin y            \
-      cos(x pm y) & = cos x cos y pm sin x sin y            \
-      tan(x pm y) & = (tan x pm tan y) / (1 mp tan x tan y) $
-  ]
-)
+      === Double-Angle
+      $ sin 2θ                     & = 2 sin θ cos θ               \
+        cos 2θ = cos^2 θ - sin^2 x & = 2cos^2 θ - 1 = 1 - 2sin^2 θ \
+        tan 2θ                     & = (2 tan θ) / (1 - tan^2 θ) $
+      #align(left)[\* where you consider the angle's location to determine the sign]
+    ]
+  ),
+  [#align(center)[=== Sum-to-Product]
 
-#grid(
-  align: center,
-  [
-
-    === Half-Angle
-    $ sin (x / 2) & = pm sqrt((1 - cos x) / 2)           & "*" \
-      sin (x / 2) & = pm sqrt((1 + cos x) / 2)           & "*" \
-      tan (x / 2) & = pm sqrt((1 - cos x) / (1 + cos x)) & "*" $
-  ],
-  [
-
-    === Double-Angle
-    $ sin 2x                   & = 2 sin x cos x               \
-      cos 2x = cos^2 x-sin^2 x & = 2cos^2 x - 1 = 1 - 2sin^2 x \
-      tan 2x                   & = (2 tan x) / (1 - tan^2 x) $
-    #align(left)[\* where you consider the angle's location to determine the sign]
-  ]
-)
-
-#align(center)[=== Sum-to-Product]
-
-#grid(
-  columns: (1.5fr, 1fr),
-  align: horizon + center,
-  $ sin x + sin y & =   & 2 & sin & ((x + y) / 2) & cos & ((x - y) / 2) \
-    sin x - sin y & =   & 2 & cos & ((x + y) / 2) & sin & ((x - y) / 2) \
-    cos x + cos y & =   & 2 & cos & ((x + y) / 2) & cos & ((x - y) / 2) \
-    cos x - cos y & = - & 2 & sin & ((x + y) / 2) & sin & ((x - y) / 2) $, $ tan x pm tan y & = (sin(x pm y)) / (cos x cos y) \
-    "where"        & x / (90°) mod 2 != 1            \
-                                                     \
-    cot x pm cot y & = (sin(y pm x)) / (sin x sin y) \
-    "where"        & x / (90°) mod 2 != 2 $
-)
-
-#grid(
-  align: horizon + center,
-  [=== Product-to-Sum
-  $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
-    cos x cos y & = (cos (x+y) + cos (x-y)) / 2 \
-    sin x cos y & = (sin (x+y) + sin (x-y)) / 2 $],
-  [=== Co-Function
   #grid(
-    columns: (1fr, 1fr),
-    column-gutter: 0pt,
-    $ sin & (90-x) & = cos x \
-      sec & (90-x) & = csc x \
-      tan & (90-x) & = cot x $, $ cos & (90-x) & = sin x \
-      csc & (90-x) & = sec x \
-      cot & (90-x) & = tan x $,
-  )]
+    columns: (1.5fr, 1fr),
+    align: horizon + center,
+    $ sin α + sin β & =   & 2 & sin & ((α + β) / 2) & cos & ((α - β) / 2) \
+      sin α - sin β & =   & 2 & cos & ((α + β) / 2) & sin & ((α - β) / 2) \
+      cos α + cos β & =   & 2 & cos & ((α + β) / 2) & cos & ((α - β) / 2) \
+      cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2) $, $ tan α pm tan β & = (sin(α pm β)) / (cos α cos β) \
+      "where"        & α / (90°) mod 2 != 1            \
+                                                       \
+      cot α pm cot β & = (sin(β pm α)) / (sin α sin β) \
+      "where"        & α / (90°) mod 2 != 2 $
+  )],
+  grid(
+    align: horizon + center,
+    [=== Product-to-Sum
+    $ sin α sin β & = (cos (α - β) - cos (α + β)) / 2 \
+      cos α cos β & = (cos (α + β) + cos (α - β)) / 2 \
+      sin α cos β & = (sin (α + β) + sin (α - β)) / 2 $],
+    [=== Co-Function
+    #grid(
+      columns: (1fr, 1fr),
+      column-gutter: 0pt,
+      $ sin & (90-θ) & = cos θ \
+        sec & (90-θ) & = csc θ \
+        tan & (90-θ) & = cot θ $, $ cos & (90 - θ) & = sin θ \
+        csc & (90-θ)   & = sec θ \
+        cot & (90-θ)   & = tan θ $,
+    )]
+  )
 )
 
 == Laws
 
 #grid(
   columns: (1fr, 1fr, 1fr),
+  align: center + horizon,
   [=== Law of Sines
-  $ (sin A) / a = (sin B) / b = (sin C) / c $
-  $ "Area" = 1 / 2 a b sin A $ ], [=== Law of Cosines
-  $ a^2 = b^2 + c^2 - 2 b c cos A $
-  $ cos A = (b^2 + c^2 - a^2) / (2 b c) $ ], [=== Law of Tangents
-  $ (a - b) / (a + b) = (tan (1 / 2 (A - B))) / (tan (1 / 2 (A + B))) $ ],
+  $ (sin α) / a = (sin β) / b = (sin γ) / c $
+  $ "Area" = 1 / 2 a b sin α $ ], [=== Law of Cosines
+  $ a^2 = b^2 + c^2 - 2 b c cos α $
+  $ cos α = (b^2 + c^2 - a^2) / (2 b c) $ ], [=== Law of Tangents
+  $ (a - b) / (a + b) = (tan (display(1 / 2) (α - β))) / (tan (display(1 / 2) (α + β))) $ ],
 )
 
 = Graphs and Geometry
@@ -398,7 +388,7 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
       (a^m) / (a^n) & = a^(m - n)   \
       (a b)^n       & = a^n dot b^n $, $
       (a / b)^n     & = (a^n) / (b^n) \
-      (a^m)^n       & = a^(m \cdot n) \
+      (a^m)^n       & = a^(m dot n)   \
       a^((1) / (n)) & = root(n, a)    \
       a^m = a^n     & ==> m = n $
   )],
