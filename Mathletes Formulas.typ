@@ -1,13 +1,21 @@
 #set enum(numbering: "1.a.", spacing: 1.5em, indent: 1em)
 
 #show heading: set block(below: 1em)
-#show heading.where(level: 3): set block(below: 1.5em, above: 1.5em)
+#show heading.where(level: 2): set block(below: 1.5em, above: 2em)
+#show heading.where(level: 3): set block(below: 1em, above: 1.5em)
 #show heading.where(level: 3): set heading(numbering: none, outlined: false)
 #show heading.where(level: 4): set heading(numbering: none, outlined: false)
 
 #set grid(align: center, columns: (1fr, 1fr), gutter: 16pt)
 
-#set page(numbering: "1", margin: 1in)
+#set page(numbering: "1", margin: 1in, header: context {
+  if counter(page).get().first() > 1 { grid(
+    columns: (1fr, 1fr),
+    align: (left, right),
+    [Mathletes Formulas], [2026-2027],
+    grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt))
+  ) }
+})
 #set heading(
   numbering: "1.",
 )
@@ -23,7 +31,9 @@
   #v(4pt)
   #text(size: 12pt)[2026-2027] \
 ]
-#outline(title: "Table of Contents", indent: 0.25in)
+#show outline.entry.where(level: 1): set block(above: 1.2em)
+#show outline.entry.where(level: 1): set text(weight: "bold")
+#outline(title: "Table of Contents", indent: 1.5em)
 
 #pagebreak()
 
@@ -139,40 +149,42 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       cot θ & = x / y $
   ),
 )
-
-#figure(caption: [Functions], table(
-  inset: 8pt,
-  columns: (auto, auto, auto, auto),
-  table.header([Function], [Domain], [Range], [Period]),
-  $sin$, $RR$,                               $[-1, 1]$,                 $2 pi$,
-  $cos$, $RR$,                               $[-1, 1]$,                 $2 pi$,
-  $tan$, ${x | x in RR, x mod pi != 1 / 2}$, $RR$,                      $pi$,
-  $csc$, ${x | x in RR, x mod pi != 0}$,     $(-oo, -1] union [1, oo)$, $2 pi$,
-  $sec$, ${x | x in RR, x mod pi != 1 / 2}$, $(-oo, -1] union [1, oo)$, $2 pi$,
-  $cot$, ${x | x in RR, x mod pi != 0}$,     $RR$,                      $pi$,
-))
-#figure(caption: [Inverse Functions], table(
-  inset: 8pt,
-  columns: (auto, auto, auto),
-  align: center + horizon,
-  table.header([Function], [Domain], [Range]),
-  $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $ [(-pi / 2), pi / 2] $,
-  $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $ [0, pi / 2] $,
-  $tan^(-1) "/" arctan$,   $bb(R)$,                   $ (-pi / 2, pi / 2) $,
-  $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $ [-pi / 2, 0) union (0, pi / 2] $,
-  $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $ [0, pi / 2) union (pi / 2, pi] $,
-  $cot^(-1) "/" "arccot"$, $bb(R)$,                   $ (0, pi) $,
-))
-
-#figure(caption: [Common Values], table(
-  inset: 8pt,
-  columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
-  align: center + horizon,
-  table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
-  $sin$, $0$, $1$,             $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$,     $0$,  $-1$,    $0$,
-  $cos$, $1$, $ sqrt(3) / 2 $, $ sqrt(2) / 2 $, $ 1 / 2 $,       $0$,     $-1$, $0$,     $1$,
-  $cos$, $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$
-))
+#align(horizon)[#grid(
+  columns: (1fr),
+  row-gutter: 32pt,
+  figure(caption: [Functions], table(
+    inset: 8pt,
+    columns: (auto, auto, auto, auto),
+    table.header([Function], [Domain], [Range], [Period]),
+    $sin$, $RR$,                               $[-1, 1]$,                 $2 pi$,
+    $cos$, $RR$,                               $[-1, 1]$,                 $2 pi$,
+    $tan$, ${x | x in RR, x mod pi != 1 / 2}$, $RR$,                      $pi$,
+    $csc$, ${x | x in RR, x mod pi != 0}$,     $(-oo, -1] union [1, oo)$, $2 pi$,
+    $sec$, ${x | x in RR, x mod pi != 1 / 2}$, $(-oo, -1] union [1, oo)$, $2 pi$,
+    $cot$, ${x | x in RR, x mod pi != 0}$,     $RR$,                      $pi$,
+  )),
+  figure(caption: [Inverse Functions], table(
+    inset: 8pt,
+    columns: (auto, auto, auto),
+    align: center + horizon,
+    table.header([Function], [Domain], [Range]),
+    $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $ [-pi / 2, pi / 2] $,
+    $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $ [0, pi / 2] $,
+    $tan^(-1) "/" arctan$,   $bb(R)$,                   $ (-pi / 2, pi / 2) $,
+    $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $ [-pi / 2, 0) union (0, pi / 2] $,
+    $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $ [0, pi / 2) union (pi / 2, pi] $,
+    $cot^(-1) "/" "arccot"$, $bb(R)$,                   $ (0, pi) $,
+  )),
+  figure(caption: [Common Values], table(
+    inset: 8pt,
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    align: center + horizon,
+    table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
+    $sin$, $0$, $1$,             $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$,     $0$,  $-1$,    $0$,
+    $cos$, $1$, $ sqrt(3) / 2 $, $ sqrt(2) / 2 $, $ 1 / 2 $,       $0$,     $-1$, $0$,     $1$,
+    $cos$, $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$
+  ))
+)]
 
 == Identities
 #grid(
@@ -292,13 +304,11 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 == Lines and Points
 
 #grid(
+  row-gutter: 24pt,
   [=== Distance
   $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $ ],
   [=== Midpoint
-  $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $ ]
-)
-
-#grid(
+  $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $ ],
   [=== Perpendicular Bisector
   $ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $],
   [=== Pythagorean Theorem
@@ -335,7 +345,7 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
 
 == Graph Manipulation
 
-#align(center)[#table(
+#align(center)[#block(breakable: false)[#table(
   inset: 8pt,
   columns: 3,
   align: horizon,
@@ -346,7 +356,7 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
   $g(x) & = f(c x)$,    [$ c < 0 $ $ c > 0 $], [$ "horizontal stretch by a factor of" c $ $"horizontal compress by a factor of" c$],
   $g(x) & = -f(x)$,     [],                    [$ "reflect about the x-axis" $],
   $g(x) & = f(-x)$,     [],                    [$ "reflect about the y-axis" $]
-)]
+)]]
 
 = Miscellaneous
 
@@ -371,7 +381,7 @@ The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ m
 
 Let $a$ and $b$ be real numbers. The number $a + b i$ is a _complex number_ written in _standard form_. The number $a$ is the _real part_ and the number $b i$ is the _imaginary part_ of the complex number.
 
-When $b = 0$, the number $a + b i$ is a real number. When $b != 0$, the number $a + b i$ is an _imaginary number_. A number ofr the form $b i$, where $b != 0$, is a _pure imaginary number_.
+When $b = 0$, the number $a + b i$ is a real number. When $b != 0$, the number $a + b i$ is an _imaginary number_. A number of the form $b i$, where $b != 0$, is a _pure imaginary number_.
 
 $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 
