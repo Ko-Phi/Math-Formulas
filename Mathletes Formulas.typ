@@ -1,13 +1,6 @@
 #set enum(numbering: "1.a.", spacing: 1.5em, indent: 1em)
-
-#show heading: set block(below: 1em)
-#show heading.where(level: 2): set block(below: 1.5em, above: 2em)
-#show heading.where(level: 3): set block(below: 1em, above: 1.5em)
-#show heading.where(level: 3): set heading(numbering: none, outlined: false)
-#show heading.where(level: 4): set heading(numbering: none, outlined: false)
-
-#set grid(align: center, columns: (1fr, 1fr), gutter: 16pt)
-
+#set grid(align: center + horizon, columns: (1fr, 1fr), gutter: 16pt)
+#set table(align: center + horizon, inset: 8pt);
 #set page(numbering: "1", margin: 1in, header: context {
   if counter(page).get().first() > 1 { grid(
     columns: (1fr, 1fr),
@@ -16,23 +9,31 @@
     grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt))
   ) }
 })
-#set heading(
-  numbering: "1.",
-)
+#set heading(numbering: "1.")
 #set text(font: "New Computer Modern")
+
+#show heading: set block(below: 1em)
+#show heading.where(level: 2): set block(below: 1.5em, above: 2em)
+#show heading.where(level: 3): set block(below: 1em, above: 1.5em)
+#show heading.where(level: 3): set heading(numbering: none, outlined: false)
+#show heading.where(level: 4): set heading(numbering: none, outlined: false)
+
+#show table: set text(weight: "bold")
+
+#show outline.entry.where(level: 1): set block(above: 1.2em)
+#show outline.entry.where(level: 1): set text(weight: "bold")
 
 #let pm = $plus.minus$
 #let mp = $minus.plus$
 
 #align(center)[
-  #text(size: 24pt, weight: "bold")[Mathletes Formulas] \
+  #text(size: 2em, weight: "bold")[Mathletes Formulas] \
   #v(8pt)
-  #text(size: 16pt, weight: "medium")[Sheldon Mathletes] \
+  #text(size: 1.5em, weight: "medium")[Sheldon Mathletes] \
   #v(4pt)
-  #text(size: 12pt)[2026-2027] \
+  #text(size: 1em)[2026-2027] \
 ]
-#show outline.entry.where(level: 1): set block(above: 1.2em)
-#show outline.entry.where(level: 1): set text(weight: "bold")
+
 #outline(title: "Table of Contents", indent: 1.5em)
 
 #pagebreak()
@@ -41,13 +42,12 @@
 
 == Linear Equations
 #grid(
-  align: left + horizon,
   columns: (auto, 1fr, auto, 1fr),
   column-gutter: 20pt,
-  [=== Slope-Intercept], $y = m x + b$,           [=== Slope],       $ m = (Delta y) / (Delta x) = (y_2-y_1) / (x_2-x_1) $,
-  [=== Point-Slope],     $y - y_1 = m (x - x_1)$, [=== Point-Point], $ y - y_1 = (y_2-y_1) / (x_2-x_1) (x - x_1) $
+  [=== Slope-Intercept], $y = m x + b$,           [=== Slope],       $ m = (Delta y) / (Delta x) = (y_2 - y_1) / (x_2 - x_1) $,
+  [=== Point-Slope],     $y - y_1 = m (x - x_1)$, [=== Point-Point], $ y - y_1 = (y_2 - y_1) / (x_2 - x_1) (x - x_1) $
 )
-Parallel lines have equivalent slopes, while perpendicular lines have slopes that are negative reciprocals ($m perp - 1 / m$)
+Parallel lines have equivalent slopes, while perpendicular lines have slopes that are negative reciprocals of one another ($m perp - 1 / m$)
 
 == Quadratics
 
@@ -82,7 +82,7 @@ is a polynomial function of x with degree n.
 === Linear Factorization Theorem
 
 If $f(x)$ is a polynomial of degree $n$, where $n > 0$, then $f(x)$ has precisely $n$ linear factors
-$ f(x) = a_n (x-c_1) (x-c_2) ... (x-c_n) $
+$ f(x) = a_n (x - c_1) (x - c_2) ... (x - c_n) $
 where $c_1, c_2, ..., c_n$ are complex numbers.
 
 === Rational Zero Test
@@ -104,9 +104,9 @@ For polynomials with _integer coefficients_, $a + sqrt(b)$ being a zero implies 
 === Roots
 
 Let $f$ be the polynomial
-$ f(x) = a_n x^n + a_(n-1) x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
+$ f(x) = a_n x^n + a_(n - 1) x^(n - 1) + ... + a_2x^2 + a_1x + a_0 $
 #grid(
-  $ "The sum of all roots" = -a_n / a_(n-1) $,
+  $ "The sum of all roots" = -a_n / a_(n - 1) $,
   $ "The product of all roots" = (-1)^n a_0 / a_n $
 )
 
@@ -114,8 +114,8 @@ $ f(x) = a_n x^n + a_(n-1) x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
 
 Let $f$ be the rational function
 $ f(x) = N(x) / D(x) =
-    (a_n x^n + a_(n-1) x^(n-1) + ... + a_1 x + a_0) /
-    (b_n x^n + b_(m-1) x^(m-1) + ... + b_1 x + b_0) $
+    (a_n x^n + a_(n - 1) x^(n - 1) + ... + a_1 x + a_0) /
+    (b_n x^n + b_(m - 1) x^(m - 1) + ... + b_1 x + b_0) $
 where $N(x)$ and $D(x)$ have no common factors.
 
 + The graph of $f$ has _vertical_ asymptotes at the zeros of $D(x)$.
@@ -132,7 +132,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
 #grid(
   columns: (1fr, 1fr),
-  align: center + horizon,
   grid(
     $ sin θ & = "opposite" / "hypotenuse" \
       cos θ & = "adjacent" / "hypotenuse" \
@@ -153,7 +152,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   columns: (1fr),
   row-gutter: 32pt,
   figure(caption: [Functions], table(
-    inset: 8pt,
     columns: (auto, auto, auto, auto),
     table.header([Function], [Domain], [Range], [Period]),
     $sin$, $RR$,                               $[-1, 1]$,                 $2 pi$,
@@ -164,25 +162,21 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     $cot$, ${x | x in RR, x mod pi != 0}$,     $RR$,                      $pi$,
   )),
   figure(caption: [Inverse Functions], table(
-    inset: 8pt,
     columns: (auto, auto, auto),
-    align: center + horizon,
     table.header([Function], [Domain], [Range]),
     $sin^(-1) "/" arcsin$,   $[-1, 1]$,                 $ [-pi / 2, pi / 2] $,
     $cos^(-1) "/" arccos$,   $[-1, 1]$,                 $ [0, pi / 2] $,
-    $tan^(-1) "/" arctan$,   $bb(R)$,                   $ (-pi / 2, pi / 2) $,
+    $tan^(-1) "/" arctan$,   $RR$,                      $ (-pi / 2, pi / 2) $,
     $csc^(-1) "/" "arccsc"$, $(-oo, -1] union [1, oo)$, $ [-pi / 2, 0) union (0, pi / 2] $,
     $sec^(-1) "/" "arcsec"$, $(-oo, -1] union [1, oo)$, $ [0, pi / 2) union (pi / 2, pi] $,
-    $cot^(-1) "/" "arccot"$, $bb(R)$,                   $ (0, pi) $,
+    $cot^(-1) "/" "arccot"$, $RR$,                      $ (0, pi) $,
   )),
   figure(caption: [Common Values], table(
-    inset: 8pt,
     columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
-    align: center + horizon,
     table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
-    $sin$, $0$, $1$,             $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$,     $0$,  $-1$,    $0$,
-    $cos$, $1$, $ sqrt(3) / 2 $, $ sqrt(2) / 2 $, $ 1 / 2 $,       $0$,     $-1$, $0$,     $1$,
-    $cos$, $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$
+    "sin", $0$, $1$,             $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$,     $0$,  $-1$,    $0$,
+    "cos", $1$, $ sqrt(3) / 2 $, $ sqrt(2) / 2 $, $ 1 / 2 $,       $0$,     $-1$, $0$,     $1$,
+    "cos", $0$, $ sqrt(3) / 3 $, $1$,             $sqrt(3)$,       [undef], $0$,  [undef], $0$
   ))
 )]
 
@@ -192,7 +186,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   row-gutter: 32pt,
   grid(
     columns: (1fr, 1.4fr, 1fr),
-    align: center + horizon,
     [
 
       === Radians and Degrees
@@ -203,7 +196,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       === Reciprocals
       #grid(
         columns: (auto, auto),
-        column-gutter: 8pt,
+        column-gutter: 16pt,
         $ csc θ = (sin θ)^(-1) \
         sec θ = (cos θ)^(-1) \
         cot θ = (tan θ)^(-1) $, $ sin θ = (csc θ)^(-1) \
@@ -256,19 +249,17 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   [#align(center)[=== Sum-to-Product]
 
   #grid(
-    columns: (1.5fr, 1fr),
-    align: horizon + center,
+    columns: (1fr, 1fr),
     $ sin α + sin β & =   & 2 & sin & ((α + β) / 2) & cos & ((α - β) / 2) \
       sin α - sin β & =   & 2 & cos & ((α + β) / 2) & sin & ((α - β) / 2) \
       cos α + cos β & =   & 2 & cos & ((α + β) / 2) & cos & ((α - β) / 2) \
-      cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2) $, $ tan α pm tan β & = (sin(α pm β)) / (cos α cos β) \
-      "where"        & α / (90°) mod 2 != 1            \
-                                                       \
-      cot α pm cot β & = (sin(β pm α)) / (sin α sin β) \
-      "where"        & α / (90°) mod 2 != 2 $
+      cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2) $, $ tan α pm tan β = (sin(α pm β)) / (cos α cos β) \
+    "where" α / (90°) mod 2 != 1 \
+    \
+    cot α pm cot β = (sin(β pm α)) / (sin α sin β) \
+    "where" α / (90°) mod 2 != 2 $
   )],
   grid(
-    align: horizon + center,
     [=== Product-to-Sum
     $ sin α sin β & = (cos (α - β) - cos (α + β)) / 2 \
       cos α cos β & = (cos (α + β) + cos (α - β)) / 2 \
@@ -290,7 +281,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
 #grid(
   columns: (1fr, 1fr, 1fr),
-  align: center + horizon,
   [=== Law of Sines
   $ (sin α) / a = (sin β) / b = (sin γ) / c $
   $ "Area" = 1 / 2 a b sin α $ ], [=== Law of Cosines
@@ -320,12 +310,11 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 === Circles
 #grid(
   columns: (1fr, 1fr, 1fr),
-  $ (x-m)^2+(y-n)^2=r^2 $, $ A = pi r^2 $, $ C = 2 pi r $
+  $ (x - m)^2 + (y - n)^2=r^2 $, $ "Area" = pi r^2 $, $ "Circumference" = 2 pi r $
 )
 
 === Regular Polygons
 #grid(
-  align: center + horizon,
   $ "Sum of Interior Angles" = 180 (n - 2) degree $,
   $ "Area" = 1 / 2 dot "Apothem" dot "Perimeter" $
 )
@@ -340,22 +329,20 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 Two triangles $triangle A B C "and" triangle D E F$ are similar if
 #grid(
   columns: (1fr, 1fr, 1fr),
-  align(center + horizon)[ ==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $], align(center + horizon)[ ==== SAS $ (A B) / (D E) = (A C) / (D F) "and" angle A = angle D $], align(center + horizon)[==== AA $ angle A = angle D "and" angle B = angle E $]
+  [ ==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $], [ ==== SAS $ (A B) / (D E) = (A C) / (D F) "and" angle A = angle D $], [==== AA $ angle A = angle D "and" angle B = angle E $]
 )
 
 == Graph Manipulation
 
 #align(center)[#block(breakable: false)[#table(
-  inset: 8pt,
   columns: 3,
-  align: horizon,
   table.header([Transformation], [Conditions], [Description]),
   $g(x) & = f(x pm c)$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
   $g(x) & = f(x) pm c$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
   $g(x) & = c f(x)$,    [$ c < 0 $ $ c > 0 $], [$ "vertical compress by a factor of" c $ $ "vertical stretch by a factor of" c $],
   $g(x) & = f(c x)$,    [$ c < 0 $ $ c > 0 $], [$ "horizontal stretch by a factor of" c $ $"horizontal compress by a factor of" c$],
-  $g(x) & = -f(x)$,     [],                    [$ "reflect about the x-axis" $],
-  $g(x) & = f(-x)$,     [],                    [$ "reflect about the y-axis" $]
+  $g(x) & = -f(x)$,     [N/A],                 [$ "reflect about the x-axis" $],
+  $g(x) & = f(-x)$,     [N/A],                 [$ "reflect about the y-axis" $]
 )]]
 
 = Miscellaneous
@@ -388,7 +375,6 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 == Exponential and Logarithmic Relationships
 
 #grid(
-  align: center + horizon,
   [ === Exponential
 
   #grid(
