@@ -1,9 +1,13 @@
-#set enum(numbering: "1.a.", spacing: 1.5em)
+#set enum(numbering: "1.a.", spacing: 1.5em, indent: 1em)
 
+#show heading: set block(below: 1em)
+#show heading.where(level: 1): set block(below: 1em)
+#show heading.where(level: 2): set block(below: 1em)
+#show heading.where(level: 3): set block(below: 1.5em)
 #show heading.where(level: 3): set heading(numbering: none, outlined: false)
 #show heading.where(level: 4): set heading(numbering: none, outlined: false)
 
-#set page(numbering: "1")
+#set page(numbering: "1", margin: 1in)
 #set heading(
   numbering: "1.",
 )
@@ -28,8 +32,11 @@
   #v(4pt)
   #text(size: 12pt)[2026-2027] \
 ]
+#outline(
+  title: "Table of Contents",
+)
 
-#outline(title: "Table of Contents")
+#pagebreak()
 
 = Polynomials
 
@@ -109,7 +116,7 @@ where $N(x)$ and $D(x)$ have no common factors.
   + $n = 0 arrow.r$ the line $y = a_n / b_m$ is the horizontal asymptote.
   + $n > 0 arrow.r$ there is no horizontal asymptote.
 
-Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ would have a hole at $(c, f(c))$
+Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ would then have a hole at $(c, f(c))$
 
 = Trigonometry
 
@@ -145,7 +152,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   $cos$, $0$, $sqrt(3) / 3$, $1$,           $sqrt(3)$,     [undef], $0$,  [undef], $0$,
 ))
 
-== Identities
+#align(center)[== Identities]
 #grid(
   columns: (1fr, 1fr, 1fr),
   align(center)[
@@ -168,7 +175,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   ]
 )
 
-=== Negative
+#align(center)[=== Negative]
 
 #sideBySide($ sin (-x) & = -sin x \
   cos (-x) & = -cos x \
@@ -178,28 +185,29 @@ $ csc (-x) & = -csc x \
   sec (-x) & = -sec x \
   cot (-x) & = -cot x $)
 
-=== Sum to Difference
+#align(center)[=== Sum to Difference]
 
 $ sin(x plus.minus y) & = sin x cos y plus.minus cos x sin y            \
   cos(x plus.minus y) & = cos x cos y plus.minus sin x sin y            \
   tan(x plus.minus y) & = (sin(x plus.minus y)) / (cos(x plus.minus y)) $
 
-=== Half-Angle
+#align(center)[=== Half-Angle
 
 $ sin (x / 2) & = plus.minus sqrt((1 - cos x) / 2)         \
   sin (x / 2) & = plus.minus sqrt((1 + cos x) / 2)         \
   tan (x / 2) & = plus.minus (sin (x / 2)) / (cos (x / 2)) $
-where you consider the angle's location to determine the sign
+where you consider the angle's location to determine the sign]
 
-=== Double-Angle
+#align(center)[=== Double-Angle]
 
 $ sin 2x                   & = 2 sin x cos x               \
   cos 2x = cos^2 x-sin^2 x & = 2cos^2 x - 1 = 1 - 2sin^2 x \
   tan 2x                   & = (sin 2x) / (cos 2x) $
 
-=== Sum to Product
-#sideBySide($ sin x plus.minus sin y & = 2 sin ((x plus.minus y) / 2) cos ((x \mp y) / 2) \
-  cos x + cos y          & = 2 cos ((x + y) / 2) cos ((x - y) / 2)            \
+#align(center)[=== Sum to Product]
+
+#sideBySide($ sin x plus.minus sin y & = 2 sin ((x plus.minus y) / 2) cos ((x minus.plus y) / 2) \
+  cos x + cos y          & = 2 cos ((x + y) / 2) cos ((x - y) / 2)                   \
   cos x - cos y          & = -2 sin ((x + y) / 2) sin ((x - y) / 2) $
 ,
 $ tan x plus.minus tan y & = (sin(x plus.minus y)) / (cos x cos y) text("(1)") \
@@ -208,13 +216,13 @@ $ tan x plus.minus tan y & = (sin(x plus.minus y)) / (cos x cos y) text("(1)") \
 #align(left)[ $ text("(1) where") x & eq.not 90°  & text("and") x eq.not 270° \
   text("(2) where") x & eq.not 180° & text("and") x eq.not 360° $]
 
-=== Product to Sum
+#align(center)[=== Product to Sum]
 
 $ sin x sin y & = (cos (x-y) - cos (x+y)) / 2 \
   cos x cos y & = (cos (x+y) + cos (x-y)) / 2 \
   sin x cos y & = (sin (x+y) + sin (x-y)) / 2 $
 
-== Laws
+#align(center)[== Laws]
 
 #sideBySide([=== Law of Sines
 
@@ -226,17 +234,35 @@ $ cos A = (b^2 + c^2 - a^2) / (2 b c) $ ])
 
 = Graphs and Geometry
 
-== Relationships
+== Lines and Points
 
 #sideBySide([ === Distance
 $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $], [ === Midpoint
 $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $])
 
-=== Perpendicular Bisector
-$ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $
-#sideBySide([=== Pythagorean Theorem
-$ a^2 + b^2 = c^2 $ ], [=== Circles
-#sideBySide($ (x-m)^2+(y-n)^2=r^2 $, $ A = pi r^2 $) ])
+#sideBySide([=== Perpendicular Bisector
+$ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $], [=== Pythagorean Theorem
+$ a^2 + b^2 = c^2 arrow.r c = sqrt(a^2 + b^2) $])
+
+== Shapes
+
+=== Circles
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  $ (x-m)^2+(y-n)^2=r^2 $, $ A = pi r^2 $, $ C = 2 pi r $
+)
+
+=== Regular Polygons
+#align(horizon)[#grid(
+  columns: (1fr, 1fr),
+  $ "Sum of Interior Angles" = 180 (n - 2) degree $, $A = 1 / 2 dot a dot P", where " P = n dot s" and "a = "distance from the center to the middle of a side"$
+)]
+
+=== Volumes
+#align(horizon)[#grid(
+  columns: (1fr, 1fr, 1fr),
+  $ V_"Cylinder" = pi r^2 h $, $ V_"Cone" = 1 / 3 pi r^2 h $, $ V_"Sphere" = 4 / 3 pi r^3 $
+)]
 
 === Triangle Similarity
 Two triangles $triangle A B C text("and") triangle D E F$ are similar if
@@ -255,10 +281,12 @@ Two triangles $triangle A B C text("and") triangle D E F$ are similar if
   $g(x) & = f(x plus.minus c)$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
   $g(x) & = f(x) plus.minus c$, [$ (+) $ $ (-) $],     [$ "shift left" c "units" $ $ "shift right" c "units" $],
   $g(x) & = c f(x)$,            [$ c < 0 $ $ c > 0 $], [$ "vertical compress by a factor of" c $ $ "vertical stretch by a factor of" c $],
-  $g(x) & = f(c x)$,            [$ c < 0 $ $ c > 0 $], [$ "horizontal stretch by a factor of" c $ $ "horizontal compress by a factor of" $],
+  $g(x) & = f(c x)$,            [$ c < 0 $ $ c > 0 $], [$ "horizontal stretch by a factor of" c $ $"horizontal compress by a factor of" c$],
   $g(x) & = -f(x)$,             [],                    [$ "reflect about the x-axis" $],
   $g(x) & = f(-x)$,             [],                    [$ "reflect about the y-axis" $]
 )]
+
+= Miscellaneous
 
 == Inverse Functions
 
@@ -270,8 +298,6 @@ Under these conditions, the function $g$ is the _inverse function_ of the functi
 #sideBySide($ f(f^(-1)(x)) = x $, $ f^(-1)(f(x)) = x $)
 
 The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ must be equal to the domain of $f^(-1)$.
-
-= Miscellaneous
 
 == Complex Numbers
 
