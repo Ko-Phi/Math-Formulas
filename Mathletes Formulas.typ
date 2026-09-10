@@ -47,12 +47,12 @@
   columns: (auto, 1fr, auto, 1fr),
   column-gutter: 20pt,
   [=== Slope-Intercept],
-  $y = m x + b$,
+  $ y = m x + b $,
   [=== Slope],
   $ m = (Delta y) / (Delta x) = (y_2 - y_1) / (x_2 - x_1) $,
 
   [=== Point-Slope],
-  $y - y_1 = m (x - x_1)$,
+  $ y - y_1 = m (x - x_1) $,
   [=== Point-Point],
   $ y - y_1 = (y_2 - y_1) / (x_2 - x_1) (x - x_1) $,
 )
@@ -173,40 +173,53 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 #align(horizon)[#grid(
   columns: 1fr,
   row-gutter: 32pt,
-  figure(caption: [Functions], table(
-    columns: (auto, auto, auto, auto),
-    table.header([Function], [Domain], [Range], [Period]),
-    $sin$, $RR$, $[-1, 1]$, $2 pi$,
-    $cos$, $RR$, $[-1, 1]$, $2 pi$,
-    $tan$, ${x | x in RR, x mod pi != 1 / 2}$, $RR$, $pi$,
-    $csc$, ${x | x in RR, x mod pi != 0}$, $(-oo, -1] union [1, oo)$, $2 pi$,
-    $sec$,
-    ${x | x in RR, x mod pi != 1 / 2}$,
-    $(-oo, -1] union [1, oo)$,
-    $2 pi$,
+  figure(
+    caption: [Functions],
+    table(
+      columns: (auto, auto, auto, auto),
+      table.header([Function], [Domain], [Range], [Period]),
+      $ sin $, $ RR $, $ [-1, 1] $, $ 2 pi $,
+      $ cos $, $ RR $, $ [-1, 1] $, $ 2 pi $,
+      $ tan $, ${x | x in RR, x mod pi != 1 / 2}$, $ RR $, $ pi $,
 
-    $cot$, ${x | x in RR, x mod pi != 0}$, $RR$, $pi$,
-  )),
-  figure(caption: [Inverse Functions], table(
-    columns: (auto, auto, auto),
-    table.header([Function], [Domain], [Range]),
-    $sin^(-1) "/" arcsin$, $[-1, 1]$, $ [-pi / 2, pi / 2] $,
-    $cos^(-1) "/" arccos$, $[-1, 1]$, $ [0, pi / 2] $,
-    $tan^(-1) "/" arctan$, $RR$, $ (-pi / 2, pi / 2) $,
-    $csc^(-1) "/" "arccsc"$,
-    $(-oo, -1] union [1, oo)$,
-    $ [-pi / 2, 0) union (0, pi / 2] $,
+      $ csc $,
+      ${x | x in RR, x mod pi != 0}$,
+      $ (-oo, -1] union [1, oo) $,
+      $ 2 pi $,
 
-    $sec^(-1) "/" "arcsec"$,
-    $(-oo, -1] union [1, oo)$,
-    $ [0, pi / 2) union (pi / 2, pi] $,
+      $ sec $,
+      ${x | x in RR, x mod pi != 1 / 2}$,
+      $ (-oo, -1] union [1, oo) $,
+      $ 2 pi $,
 
-    $cot^(-1) "/" "arccot"$, $RR$, $ (0, pi) $,
-  )),
+      $ cot $, $ {x | x in RR, x mod pi != 0} $, $RR$, $pi$,
+    ),
+  ),
+  figure(
+    caption: [Inverse Functions],
+    table(
+      columns: (auto, auto, auto),
+      table.header([Function], [Domain], [Range]),
+      $ sin^(-1) "/" arcsin $, $ [-1, 1] $, $ [-pi / 2, pi / 2] $,
+      $ cos^(-1) "/" arccos $, $ [-1, 1] $, $ [0, pi / 2] $,
+      $ tan^(-1) "/" arctan $, $ RR $, $ (-pi / 2, pi / 2) $,
+
+      $ csc^(-1) "/" "arccsc" $,
+      $ (-oo, -1] union [1, oo) $,
+      $ [-pi / 2, 0) union (0, pi / 2] $,
+
+      $ sec^(-1) "/" "arcsec" $,
+      $ (-oo, -1] union [1, oo) $,
+      $ [0, pi / 2) union (pi / 2, pi] $,
+
+      $ cot^(-1) "/" "arccot" $, $ RR $, $ (0, pi) $,
+    ),
+  ),
   figure(caption: [Common Values], table(
     columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
     table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
     "sin", $0$, $1$, $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$, $0$, $-1$, $0$,
+
     "cos",
     $1$,
     $ sqrt(3) / 2 $,
@@ -370,7 +383,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   [=== Law of Tangents
     $
       (a - b) / (a + b) = display(tan (1 / 2 (α - β))) / display(tan (1 / 2 (α + β)))
-    $ ],
+    $],
 )
 
 = Graphs and Geometry
@@ -380,9 +393,9 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 #grid(
   row-gutter: 24pt,
   [=== Distance
-    $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $ ],
+    $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $],
   [=== Midpoint
-    $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $ ],
+    $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $],
   [=== Pythagorean Theorem
     $ a^2 + b^2 = c^2 ==> c = sqrt(a^2 + b^2) $],
   [=== Perpendicular Bisector
@@ -418,8 +431,8 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 Two triangles $triangle A B C "and" triangle D E F$ are similar if
 #grid(
   columns: (1fr, 1fr, 1fr),
-  [ ==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $ ],
-  [ ==== SAS $ (A B) / (D E) = (A C) / (D F) "and" m angle A = m angle D $],
+  [==== SSS $ (A B) / (D E) = (B C) / (E F) = (A C) / (D F) $],
+  [==== SAS $ (A B) / (D E) = (A C) / (D F) "and" m angle A = m angle D $],
   [==== AA
     $
       m angle A & = m angle D \
@@ -433,24 +446,25 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
   columns: 3,
   table.header([Transformation], [Conditions], [Description]),
   $g(x) & = f(x pm c)$,
-  [$ (+) $ $ (-) $],
-  [$ "shift left" c "units" $ $ "shift right" c "units" $],
+  [$ (+) \ (-) $],
+  [$ "shift left" c "units" \ "shift right" c "units" $],
 
   $g(x) & = f(x) pm c$,
-  [$ (+) $ $ (-) $],
-  [$ "shift left" c "units" $ $ "shift right" c "units" $],
+  [$ (+) \ (-) $],
+  [$ "shift left" c "units" \ "shift right" c "units" $],
 
   $g(x) & = c f(x)$,
-  [$ c < 0 $ $ c > 0 $],
-  [$ "vertical compress by a factor of" c $ $
-      "vertical stretch by a factor of" c
-    $],
+  [$ c < 0 \ c > 0 $],
+  [$
+    "vertical compress by a factor of" c \
+    "vertical stretch by a factor of" c
+  $],
 
   $g(x) & = f(c x)$,
-  [$ c < 0 $ $ c > 0 $],
+  [$ c < 0 \ c > 0 $],
   [$
-      "horizontal stretch by a factor of" c
-    $ $"horizontal compress by a factor of" c$],
+    "horizontal stretch by a factor of" c \ "horizontal compress by a factor of" c
+  $],
 
   $g(x) & = -f(x)$, [N/A], [$ "reflect about the x-axis" $],
   $g(x) & = f(-x)$, [N/A], [$ "reflect about the y-axis" $],
