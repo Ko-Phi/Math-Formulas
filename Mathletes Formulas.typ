@@ -180,7 +180,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       table.header([Function], [Domain], [Range], [Period]),
       $ sin $, $ RR $, $ [-1, 1] $, $ 2 pi $,
       $ cos $, $ RR $, $ [-1, 1] $, $ 2 pi $,
-      $ tan $, ${x | x in RR, x mod pi != 1 / 2}$, $ RR $, $ pi $,
+      $ tan $, ${x | x in RR, (x + pi / 2) mod pi != 0}$, $ RR $, $ pi $,
 
       $ csc $,
       ${x | x in RR, x mod pi != 0}$,
@@ -188,7 +188,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       $ 2 pi $,
 
       $ sec $,
-      ${x | x in RR, x mod pi != 1 / 2}$,
+      ${x | x in RR, (x + pi / 2) mod pi != 0}$,
       $ (-oo, -1] union [1, oo) $,
       $ 2 pi $,
 
@@ -201,7 +201,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       columns: (auto, auto, auto),
       table.header([Function], [Domain], [Range]),
       $ sin^(-1) "/" arcsin $, $ [-1, 1] $, $ [-pi / 2, pi / 2] $,
-      $ cos^(-1) "/" arccos $, $ [-1, 1] $, $ [0, pi / 2] $,
+      $ cos^(-1) "/" arccos $, $ [-1, 1] $, $ [0, pi] $,
       $ tan^(-1) "/" arctan $, $ RR $, $ (-pi / 2, pi / 2) $,
 
       $ csc^(-1) "/" "arccsc" $,
@@ -218,7 +218,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   figure(caption: [Common Values], table(
     columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
     table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
-    "sin", $0$, $1$, $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$, $0$, $-1$, $0$,
+    "sin", $0$, $ 1/2 $, $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$, $0$, $-1$, $0$,
 
     "cos",
     $1$,
@@ -305,9 +305,9 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
       === Half-Angle
       $
-        sin (θ / 2) & = pm sqrt((1 - cos θ) / 2)           & "*" \
-        sin (θ / 2) & = pm sqrt((1 + cos θ) / 2)           & "*" \
-        tan (θ / 2) & = pm sqrt((1 - cos θ) / (1 + cos θ)) & "*"
+        sin (θ / 2) & = pm sqrt((1 - cos θ) / 2) \
+        sin (θ / 2) & = pm sqrt((1 + cos θ) / 2) \ \
+        tan (θ / 2) = pm sqrt((1 - cos θ) / (1 + cos θ)) & = (sin θ) / (1 + cos θ) = (1 - cos θ) / (sin θ)
       $
     ],
     [
@@ -318,9 +318,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         cos 2θ = cos^2 θ - sin^2 x & = 2cos^2 θ - 1 = 1 - 2sin^2 θ \
                             tan 2θ & = (2 tan θ) / (1 - tan^2 θ)
       $
-      #align(
-        left,
-      )[\* where you consider the angle's location to determine the sign]
     ],
   ),
   [#align(center)[=== Sum-to-Product]
@@ -354,14 +351,14 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         columns: (1fr, 1fr),
         column-gutter: 0pt,
         $
-          sin & (90-θ) & = cos θ \
-          sec & (90-θ) & = csc θ \
-          tan & (90-θ) & = cot θ
+          sin & (90° - θ) & = cos θ \
+          sec & (90° - θ) & = csc θ \
+          tan & (90° - θ) & = cot θ
         $,
         $
-          cos & (90 - θ) & = sin θ \
-          csc & (90-θ)   & = sec θ \
-          cot & (90-θ)   & = tan θ
+          cos & (90° - θ) & = sin θ \
+          csc & (90° - θ) & = sec θ \
+          cot & (90° - θ) & = tan θ
         $,
       )],
   )
@@ -373,12 +370,14 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   columns: (1fr, 1fr, 1fr),
   [=== Law of Sines
     $
+      a / (sin α) = b / (sin β) = c / (sin γ) \
+      \
       (sin α) / a = (sin β) / b = (sin γ) / c \
-      "Area" = 1 / 2 a b sin α
     $],
   [=== Law of Cosines
     $
       a^2 = b^2 + c^2 - 2 b c cos α \
+      \
       cos α = (b^2 + c^2 - a^2) / (2 b c)
     $],
   [=== Law of Tangents
@@ -532,7 +531,8 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
             log x & = log_(10)x \
              ln x & = log_e x \
       log_n a = b & ==> a =n^b \
-      n^(log_n x) & = x
+      n^(log_n x) & = x \
+        log_n n^x & = x
     $,
     $
         log_n a^b & = b log_n a \
