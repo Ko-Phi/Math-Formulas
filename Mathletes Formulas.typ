@@ -338,7 +338,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         "where" α / (90°) mod 2 != 1 \
         \
         cot α pm cot β = (sin(β pm α)) / (sin α sin β) \
-        "where" α / (90°) mod 2 != 2
+        "where" α / (90°) mod 2 != 0
       $,
     )],
   grid(
