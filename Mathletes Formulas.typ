@@ -326,7 +326,8 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   [#align(center)[=== Sum-to-Product]
 
     #grid(
-      columns: (1fr, 1fr),
+      columns: (auto, auto),
+      column-gutter: 32pt,
       $
         sin α + sin β & =   & 2 & sin & ((α + β) / 2) & cos & ((α - β) / 2) \
         sin α - sin β & =   & 2 & cos & ((α + β) / 2) & sin & ((α - β) / 2) \
@@ -334,11 +335,11 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2)
       $,
       $
-        tan α pm tan β = (sin(α pm β)) / (cos α cos β) \
-        "where" α / (90°) mod 2 != 1 \
-        \
-        cot α pm cot β = (sin(β pm α)) / (sin α sin β) \
-        "where" α / (90°) mod 2 != 0
+        tan α pm tan β & = (sin(α pm β)) / (cos α cos β), \
+           cos α cos β & != 0 \
+                       \
+        cot α pm cot β & = (sin(β pm α)) / (sin α sin β), \
+           sin α sin β & != 0 \
       $,
     )],
   grid(
