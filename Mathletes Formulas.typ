@@ -454,14 +454,14 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
   [$ "shift left" c "units" \ "shift right" c "units" $],
 
   $g(x) & = c f(x)$,
-  [$ c < 0 \ c > 0 $],
+  [$ c < 1 \ c > 1 $],
   [$
     "vertical compress by a factor of" c \
     "vertical stretch by a factor of" c
   $],
 
   $g(x) & = f(c x)$,
-  [$ c < 0 \ c > 0 $],
+  [$ c < 1 \ c > 1 $],
   [$
     "horizontal stretch by a factor of" c \ "horizontal compress by a factor of" c
   $],
