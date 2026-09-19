@@ -89,7 +89,7 @@ Consider the function $f(x) = a x^2 + b x + c$ with vertex $(-b / 2a, f(-b / 2a)
 
 Let $n$ be a non-negative integer and let $a_n, a_(n-1), ... , a_2, a_1, a_0$ be real numbers such that $a_n != 0$. The function:
 $ f(x) = a_n x^n + a_(n-1)x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
-is a polynomial function of x with degree n.
+is a polynomial function of $x$ with degree $n$.
 
 === Linear Factorization Theorem
 
@@ -633,7 +633,6 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
           a^m = a^n & ==> m = n
     $,
   )
-
   === Logarithmic
 
   #grid(
