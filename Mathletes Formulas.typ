@@ -1,3 +1,5 @@
+#import "@preview/ctz-euclide:0.3.0": *
+
 #set enum(numbering: "1.a.", spacing: 1.5em, indent: 1em)
 #set grid(align: center + horizon, columns: (1fr, 1fr), gutter: 16pt)
 #set table(align: center + horizon, inset: 8pt);
@@ -142,35 +144,147 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
 == Functions
 
+
 #grid(
   columns: (1fr, 1fr),
-  grid(
-    $
-      sin θ & = "opposite" / "hypotenuse" \
-      cos θ & = "adjacent" / "hypotenuse" \
-      tan θ & = "opposite" / "adjacent"
-    $,
-    $
-      csc θ & = "hypotenuse" / "opposite" \
-      sec θ & = "hypotenuse" / "adjacent" \
-      cot θ & = "adjacent" / "opposite"
-    $,
-  ),
-  grid(
-    columns: (auto, auto),
-    $
-      sin θ & = y / 1 = y \
-      cos θ & = x / 1 = x \
-      tan θ & = y / x
-    $,
-    $
-      csc θ & = 1 / y \
-      sec θ & = 1 / x \
-      cot θ & = x / y
-    $,
-  ),
+  [
+    #ctz-canvas(length: 1cm, {
+      import cetz.draw: *
+
+      ctz-init()
+      ctz-style(point: (shape: "dot", size: 0.08, fill: black))
+
+      ctz-def-points("A", (0, 4), "B", (6, 0), "C", (0, 0))
+
+      ctz-draw(segment: ("A", "B"))
+      ctz-draw-measure-segment(
+        "A",
+        "B",
+        label: text(size: 1.25em)[hypotenuse],
+        stroke: 0pt,
+      )
+
+      ctz-draw(segment: ("B", "C"))
+      ctz-draw-measure-segment(
+        "B",
+        "C",
+        label: text(size: 1.25em)[opposite],
+        stroke: 0pt,
+      )
+
+      ctz-draw(segment: ("C", "A"))
+      ctz-draw-measure-segment(
+        "C",
+        "A",
+        label: text(size: 1.25em)[adjacent],
+        stroke: 0pt,
+      )
+
+      ctz-draw-angle(
+        "B",
+        "A",
+        "C",
+        label: $theta$,
+        radius: 1,
+        stroke: green + 0.8pt,
+        fill: green.lighten(70%),
+      )
+      ctz-draw-mark-right-angle("A", "C", "B", size: 0.4)
+
+      ctz-draw(points: ("A", "B", "C"), labels: (
+        A: (pos: "above left", offset: (0.1, 0)),
+        B: "right",
+        C: "below left",
+      ))
+    })
+    #grid(
+      $
+        sin θ & = "opposite" / "hypotenuse" \
+        cos θ & = "adjacent" / "hypotenuse" \
+        tan θ & = "opposite" / "adjacent"
+      $,
+      $
+        csc θ & = "hypotenuse" / "opposite" \
+        sec θ & = "hypotenuse" / "adjacent" \
+        cot θ & = "adjacent" / "opposite"
+      $,
+    )],
+  [#ctz-canvas(length: 1cm, {
+      import cetz.draw: *
+
+      ctz-init()
+      ctz-style(point: (shape: "dot", size: 0.08, fill: black))
+
+      let radius = 2.75
+      let alpha = 3 * calc.pi / 4
+
+      ctz-def-points(
+        "X1",
+        (-3.5, 0),
+        "X2",
+        (3.5, 0),
+        "Y1",
+        (0, 3.5),
+        "Y2",
+        (0, -3.5),
+      )
+      ctz-draw-circle-diameter(
+        (-radius, 0),
+        (radius, 0),
+        stroke: (thickness: 0.75pt, dash: "dashed"),
+      )
+      ctz-draw-path("X1<->X2", points: false, labels: false)
+      ctz-draw-path("Y1<->Y2", points: false, labels: false)
+
+      ctz-def-points(
+        "P",
+        (radius * calc.cos(alpha), radius * calc.sin(alpha)),
+        "O",
+        (0, 0),
+        "B",
+        (radius * calc.cos(alpha), 0),
+      )
+
+      ctz-draw(segment: ("O", "B"), dim: $ x $)
+      ctz-draw(segment: ("B", "P"), dim: $ y $, stroke: (
+        paint: purple,
+        thickness: 0.75pt,
+        dash: "dashed",
+      ))
+      ctz-draw(segment: ("O", "P"), stroke: 0.75pt)
+
+      ctz-draw-angle(
+        "O",
+        "X2",
+        "P",
+        label: $theta$,
+        radius: 0.75,
+        stroke: green + 0.8pt,
+        fill: green.lighten(70%),
+      )
+
+      ctz-draw(points: "P", labels: (
+        P: (pos: "above left", offset: (0.1, 0)),
+      ))
+    })
+    #grid(
+      columns: (auto, auto),
+      $
+        sin θ & = y / 1 = y \
+        cos θ & = x / 1 = x \
+        tan θ & = y / x
+      $,
+      $
+        csc θ & = 1 / y \
+        sec θ & = 1 / x \
+        cot θ & = x / y
+      $,
+    )],
 )
-#align(horizon)[#grid(
+
+#v(3em)
+
+#align(center)[#grid(
   columns: 1fr,
   row-gutter: 32pt,
   figure(
