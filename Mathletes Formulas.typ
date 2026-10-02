@@ -408,7 +408,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       #align(center)[=== Sum-to-Difference]
       $
         sin(α pm β) & = sin α cos β pm cos α sin β \
-        cos(α pm β) & = cos α cos β pm sin α sin β \
+        cos(α pm β) & = cos α cos β mp sin α sin β \
         tan(α pm β) & = (tan α pm tan β) / (1 mp tan α tan β)
       $
     ],
