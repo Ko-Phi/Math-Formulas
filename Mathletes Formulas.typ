@@ -416,7 +416,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   grid(
     align: center,
     [
-
       === Half-Angle
       $
         sin (θ / 2) & = pm sqrt((1 - cos θ) / 2) \
@@ -425,7 +424,6 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       $
     ],
     [
-
       === Double-Angle
       $
                             sin 2θ & = 2 sin θ cos θ \
@@ -458,8 +456,10 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       $
         sin α sin β & = (cos (α - β) - cos (α + β)) / 2 \
         cos α cos β & = (cos (α + β) + cos (α - β)) / 2 \
-        sin α cos β & = (sin (α + β) + sin (α - β)) / 2
-      $],
+        sin α cos β & = (sin (α + β) + sin (α - β)) / 2 \
+        cos α sin β & = (sin (α + β) - sin (α - β)) / 2
+      $
+    ],
     [=== Co-Function
       #grid(
         columns: (1fr, 1fr),
@@ -474,7 +474,8 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
           csc & (90° - θ) & = sec θ \
           cot & (90° - θ) & = tan θ
         $,
-      )],
+      )
+    ],
   )
 )
 
@@ -487,17 +488,20 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       a / (sin α) = b / (sin β) = c / (sin γ) \
       \
       (sin α) / a = (sin β) / b = (sin γ) / c \
-    $],
+    $
+  ],
   [=== Law of Cosines
     $
       a^2 = b^2 + c^2 - 2 b c cos α \
       \
       cos α = (b^2 + c^2 - a^2) / (2 b c)
-    $],
+    $
+  ],
   [=== Law of Tangents
     $
       (a - b) / (a + b) = display(tan (1 / 2 (α - β))) / display(tan (1 / 2 (α + β)))
-    $],
+    $
+  ],
 )
 
 = Graphs and Geometry
