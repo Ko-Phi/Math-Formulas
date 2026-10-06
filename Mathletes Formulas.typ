@@ -30,6 +30,11 @@
 #let pm = $plus.minus$
 #let mp = $minus.plus$
 
+#let pair(heading, content) = [
+  === #heading
+  #content
+]
+
 #align(center)[
   #text(size: 2em, weight: "bold")[Mathletes Formulas] \
   #v(8pt)
@@ -208,7 +213,8 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         sec θ & = "hypotenuse" / "adjacent" \
         cot θ & = "adjacent" / "opposite"
       $,
-    )],
+    )
+  ],
   [#ctz-canvas(length: 1cm, {
       import cetz.draw: *
 
@@ -279,12 +285,13 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         sec θ & = 1 / x \
         cot θ & = x / y
       $,
-    )],
+    )
+  ],
 )
 
 #v(3em)
 
-#align(center)[#grid(
+#align(center, grid(
   columns: 1fr,
   row-gutter: 32pt,
   figure(
@@ -346,52 +353,56 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 
     "cos", $0$, $ sqrt(3) / 3 $, $1$, $sqrt(3)$, [undef], $0$, [undef], $0$,
   ))
-)]
+))
 
 == Identities
+
 #grid(
-  columns: 1fr,
-  row-gutter: 32pt,
+  columns: (1fr, 1.4fr, 1fr),
+  [
+    === Radians and Degrees
+    $
+           n° & = pi / 180n "rad" \
+      m "rad" & = (180 / pi m)°
+    $
+  ],
+  [
+    === Reciprocals
+    #grid(
+      columns: (auto, auto),
+      column-gutter: 16pt,
+      $
+        csc θ = (sin θ)^(-1) \
+        sec θ = (cos θ)^(-1) \
+        cot θ = (tan θ)^(-1)
+      $,
+      $
+        sin θ = (csc θ)^(-1) \
+        cos θ = (sec θ)^(-1) \
+        tan θ = (cot θ)^(-1)
+      $,
+    )
+  ],
+  [
+    === Pythagorean
+    $
+      sin^2θ + cos^2θ = 1 \
+      tan^2θ + 1 = sec^2θ \
+      1 + cot^2θ = csc^2θ
+    $
+  ],
+)
+
+#v(32pt)
+
+#grid(
+  align: center,
   grid(
-    columns: (1fr, 1.4fr, 1fr),
+    columns: 1fr,
+    row-gutter: 32pt,
     [
-
-      === Radians and Degrees
-      $
-             n° & = pi / 180n "rad" \
-        m "rad" & = (180 / pi m)°
-      $
-    ],
-    [
-
-      === Reciprocals
+      === Even/Odd
       #grid(
-        columns: (auto, auto),
-        column-gutter: 16pt,
-        $
-          csc θ = (sin θ)^(-1) \
-          sec θ = (cos θ)^(-1) \
-          cot θ = (tan θ)^(-1)
-        $,
-        $
-          sin θ = (csc θ)^(-1) \
-          cos θ = (sec θ)^(-1) \
-          tan θ = (cot θ)^(-1)
-        $,
-      ) ],
-    [
-
-      === Pythagorean
-      $
-        sin^2θ + cos^2θ = 1 \
-        tan^2θ + 1 = sec^2θ \
-        1 + cot^2θ = csc^2θ
-      $
-    ],
-  ),
-  grid(
-    [#align(center)[=== Even/Odd]
-      #align(center)[#grid(
         columns: (auto, auto),
         $
           sin (-θ) & = - & sin θ \
@@ -403,56 +414,20 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
           sec (-θ) & =   & sec θ \
           cot (-θ) & = - & cot θ
         $,
-      )] ],
-    [
-      #align(center)[=== Sum-to-Difference]
-      $
-        sin(α pm β) & = sin α cos β pm cos α sin β \
-        cos(α pm β) & = cos α cos β mp sin α sin β \
-        tan(α pm β) & = (tan α pm tan β) / (1 mp tan α tan β)
-      $
-    ],
-  ),
-  grid(
-    align: center,
-    [
-      === Half-Angle
-      $
-        sin (θ / 2) & = pm sqrt((1 - cos θ) / 2) \
-        sin (θ / 2) & = pm sqrt((1 + cos θ) / 2) \ \
-        tan (θ / 2) = pm sqrt((1 - cos θ) / (1 + cos θ)) & = (sin θ) / (1 + cos θ) = (1 - cos θ) / (sin θ)
-      $
+      )
     ],
     [
-      === Double-Angle
-      $
-                            sin 2θ & = 2 sin θ cos θ \
-        cos 2θ = cos^2 θ - sin^2 x & = 2cos^2 θ - 1 = 1 - 2sin^2 θ \
-                            tan 2θ & = (2 tan θ) / (1 - tan^2 θ)
-      $
-    ],
-  ),
-  [#align(center)[=== Sum-to-Product]
+      === Sum-to-Product
 
-    #grid(
-      columns: (auto, auto),
-      column-gutter: 32pt,
       $
         sin α + sin β & =   & 2 & sin & ((α + β) / 2) & cos & ((α - β) / 2) \
         sin α - sin β & =   & 2 & cos & ((α + β) / 2) & sin & ((α - β) / 2) \
         cos α + cos β & =   & 2 & cos & ((α + β) / 2) & cos & ((α - β) / 2) \
         cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2)
-      $,
       $
-        tan α pm tan β & = (sin(α pm β)) / (cos α cos β), \
-           cos α cos β & != 0 \
-                       \
-        cot α pm cot β & = (sin(β pm α)) / (sin α sin β), \
-           sin α sin β & != 0 \
-      $,
-    )],
-  grid(
-    [=== Product-to-Sum
+    ],
+    [
+      === Product-to-Sum
       $
         sin α sin β & = (cos (α - β) - cos (α + β)) / 2 \
         cos α cos β & = (cos (α + β) + cos (α - β)) / 2 \
@@ -460,7 +435,8 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         cos α sin β & = (sin (α + β) - sin (α - β)) / 2
       $
     ],
-    [=== Co-Function
+    [
+      === Co-Function
       #grid(
         columns: (1fr, 1fr),
         column-gutter: 0pt,
@@ -475,8 +451,48 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
           cot & (90° - θ) & = tan θ
         $,
       )
+    ]
+  ),
+  grid(
+    columns: 1fr,
+    row-gutter: 32pt,
+    [
+      === Sum-to-Difference
+      $
+        sin(α pm β) & = sin α cos β pm cos α sin β \
+        cos(α pm β) & = cos α cos β mp sin α sin β \
+        tan(α pm β) & = (tan α pm tan β) / (1 mp tan α tan β)
+      $
     ],
-  )
+    [
+      === Double-Angle
+      $
+        sin 2θ & = 2 sin θ cos θ \
+        cos 2θ & = cos^2 θ - sin^2 x \
+               & = 2cos^2 θ - 1 \
+               & = 1 - 2sin^2 θ \
+        tan 2θ & = (2 tan θ) / (1 - tan^2 θ)
+      $
+    ],
+    [
+      === Half-Angle
+      $
+        sin (θ / 2) & = pm sqrt((1 - cos θ) / 2) \
+        cos (θ / 2) & = pm sqrt((1 + cos θ) / 2) \
+      $
+      $
+        tan (θ / 2) = (sin θ) / (1 + cos θ) = (1 - cos θ) / (sin θ)
+      $
+    ],
+    [
+      === Power Reduction
+      $
+        sin^2 θ & = (1 - cos 2θ) / 2 \
+        cos^2 θ & = (1 + cos 2θ) / 2 \
+        tan^2 θ & = (1 - cos 2θ) / (1 + cos 2θ) \
+      $
+    ],
+  ),
 )
 
 == Laws
@@ -511,13 +527,17 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 #grid(
   row-gutter: 24pt,
   [=== Distance
-    $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $],
+    $ d = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2) $
+  ],
   [=== Midpoint
-    $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $],
+    $ M = ((x_1 + x_2) / 2, (y_1 + y_2) / 2) $
+  ],
   [=== Pythagorean Theorem
-    $ a^2 + b^2 = c^2 ==> c = sqrt(a^2 + b^2) $],
+    $ a^2 + b^2 = c^2 ==> c = sqrt(a^2 + b^2) $
+  ],
   [=== Perpendicular Bisector
-    $ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $],
+    $ 2(x_2 - x_1)x + 2(y_2 - y_1)y = x_2^2 + y_2^2 - x_1^2 - y_1^2 $
+  ],
 )
 
 == Shapes
@@ -555,38 +575,39 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
     $
       m angle A & = m angle D \
       m angle B & = m angle E
-    $],
+    $
+  ],
 )
 
 == Graph Manipulation
 
-#align(center)[#block(breakable: false)[#table(
+#align(center, block(breakable: false, table(
   columns: 3,
   table.header([Transformation], [Conditions], [Description]),
   $g(x) & = f(x pm c)$,
-  [$ (+) \ (-) $],
-  [$ "shift left" c "units" \ "shift right" c "units" $],
+  $ (+) \ (-) $,
+  $ "shift left" c "units" \ "shift right" c "units" $,
 
   $g(x) & = f(x) pm c$,
-  [$ (+) \ (-) $],
-  [$ "shift left" c "units" \ "shift right" c "units" $],
+  $ (+) \ (-) $,
+  $ "shift left" c "units" \ "shift right" c "units" $,
 
   $g(x) & = c f(x)$,
-  [$ c < 1 \ c > 1 $],
-  [$
+  $ c < 1 \ c > 1 $,
+  $
     "vertical compress by a factor of" c \
     "vertical stretch by a factor of" c
-  $],
+  $,
 
   $g(x) & = f(c x)$,
-  [$ c < 1 \ c > 1 $],
-  [$
+  $ c < 1 \ c > 1 $,
+  $
     "horizontal stretch by a factor of" c \ "horizontal compress by a factor of" c
-  $],
+  $,
 
   $g(x) & = -f(x)$, [N/A], [$ "reflect about the x-axis" $],
   $g(x) & = f(-x)$, [N/A], [$ "reflect about the y-axis" $],
-)]]
+)))
 
 = Miscellaneous
 
@@ -618,7 +639,6 @@ $ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
 == Exponential and Logarithmic Properties
 
 #align(center)[
-
   === Exponential
 
   #grid(
