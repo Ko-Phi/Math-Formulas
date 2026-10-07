@@ -295,31 +295,31 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   columns: 1fr,
   row-gutter: 32pt,
   figure(
-    caption: [Functions],
+    caption: [Functions (\* $forall n in ZZ$)],
     table(
-      columns: (auto, auto, auto, auto),
+      columns: (1fr, 3fr, 2fr, 1fr),
       table.header([Function], [Domain], [Range], [Period]),
       $ sin $, $ RR $, $ [-1, 1] $, $ 2 pi $,
       $ cos $, $ RR $, $ [-1, 1] $, $ 2 pi $,
-      $ tan $, ${x | x in RR, (x + pi / 2) mod pi != 0}$, $ RR $, $ pi $,
+      $ tan $, $ {x | x in RR, x != pi / 2 + n pi}* $, $ RR $, $ pi $,
 
       $ csc $,
-      ${x | x in RR, x mod pi != 0}$,
+      $ {x | x in RR, x != n pi}* $,
       $ (-oo, -1] union [1, oo) $,
       $ 2 pi $,
 
       $ sec $,
-      ${x | x in RR, (x + pi / 2) mod pi != 0}$,
+      $ {x | x in RR, pi != pi / 2 + n pi}* $,
       $ (-oo, -1] union [1, oo) $,
       $ 2 pi $,
 
-      $ cot $, $ {x | x in RR, x mod pi != 0} $, $RR$, $pi$,
+      $ cot $, $ {x | x in RR, x != n pi}* $, $RR$, $pi$,
     ),
   ),
   figure(
     caption: [Inverse Functions],
     table(
-      columns: (auto, auto, auto),
+      columns: (1fr, 1fr, 1fr),
       table.header([Function], [Domain], [Range]),
       $ sin^(-1) "/" arcsin $, $ [-1, 1] $, $ [-pi / 2, pi / 2] $,
       $ cos^(-1) "/" arccos $, $ [-1, 1] $, $ [0, pi] $,
@@ -337,7 +337,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     ),
   ),
   figure(caption: [Common Values], table(
-    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     table.header([], [0°], [30°], [45°], [60°], [90°], [180°], [270°], [360°]),
     "sin", $0$, $ 1/2 $, $ sqrt(2) / 2 $, $ sqrt(3) / 2 $, $1$, $0$, $-1$, $0$,
 
