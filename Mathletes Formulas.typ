@@ -133,15 +133,15 @@ Let $f$ be the rational function
 $
   f(x) = N(x) / D(x) =
   (a_n x^n + a_(n - 1) x^(n - 1) + ... + a_1 x + a_0) /
-  (b_n x^n + b_(m - 1) x^(m - 1) + ... + b_1 x + b_0)
+  (b_m x^m + b_(m - 1) x^(m - 1) + ... + b_1 x + b_0)
 $
 where $N(x)$ and $D(x)$ have no common factors.
 
 + The graph of $f$ has _vertical_ asymptotes at the zeros of $D(x)$.
 + The graph of $f$ has at most one _horizontal asymptote_ determined by comparing the degrees of $N(x)$ and $D(x)$.
-  + $n < 0 ==>$ the line $y = 0$ is the horizontal asymptote.
-  + $n = 0 ==>$ the line $y = a_n / b_m$ is the horizontal asymptote.
-  + $n > 0 ==>$ there is no horizontal asymptote.
+  + $n < m ==>$ the line $y = 0$ is the horizontal asymptote.
+  + $n = m ==>$ the line $y = a_n / b_m$ is the horizontal asymptote.
+  + $n > m ==>$ there is no horizontal asymptote.
 
 Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ would then have a hole at $(c, f(c))$
 
@@ -393,13 +393,10 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   ],
 )
 
-#v(32pt)
-
 #grid(
-  align: center,
+  columns: 1fr,
+  row-gutter: 16pt,
   grid(
-    columns: 1fr,
-    row-gutter: 32pt,
     [
       === Even/Odd
       #grid(
@@ -417,26 +414,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       )
     ],
     [
-      === Sum-to-Product
-
-      $
-        sin α + sin β & =   & 2 & sin & ((α + β) / 2) & cos & ((α - β) / 2) \
-        sin α - sin β & =   & 2 & cos & ((α + β) / 2) & sin & ((α - β) / 2) \
-        cos α + cos β & =   & 2 & cos & ((α + β) / 2) & cos & ((α - β) / 2) \
-        cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2)
-      $
-    ],
-    [
-      === Product-to-Sum
-      $
-        sin α sin β & = (cos (α - β) - cos (α + β)) / 2 \
-        cos α cos β & = (cos (α + β) + cos (α - β)) / 2 \
-        sin α cos β & = (sin (α + β) + sin (α - β)) / 2 \
-        cos α sin β & = (sin (α + β) - sin (α - β)) / 2
-      $
-    ],
-    [
-      === Co-Function
+      === Cofunction
       #grid(
         columns: (1fr, 1fr),
         column-gutter: 0pt,
@@ -451,13 +429,11 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
           cot & (90° - θ) & = tan θ
         $,
       )
-    ]
+    ],
   ),
   grid(
-    columns: 1fr,
-    row-gutter: 32pt,
     [
-      === Sum-to-Difference
+      === Sum and Difference
       $
         sin(α pm β) & = sin α cos β pm cos α sin β \
         cos(α pm β) & = cos α cos β mp sin α sin β \
@@ -465,7 +441,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       $
     ],
     [
-      === Double-Angle
+      === Double Angle
       $
         sin 2θ & = 2 sin θ cos θ \
         cos 2θ & = cos^2 θ - sin^2 x \
@@ -474,14 +450,37 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         tan 2θ & = (2 tan θ) / (1 - tan^2 θ)
       $
     ],
+  ),
+  grid(
     [
-      === Half-Angle
+      === Sum to Product
+
+      $
+        sin α + sin β & =   & 2 & sin & ((α + β) / 2) & cos & ((α - β) / 2) \
+        sin α - sin β & =   & 2 & cos & ((α + β) / 2) & sin & ((α - β) / 2) \
+        cos α + cos β & =   & 2 & cos & ((α + β) / 2) & cos & ((α - β) / 2) \
+        cos α - cos β & = - & 2 & sin & ((α + β) / 2) & sin & ((α - β) / 2)
+      $
+    ],
+    [
+      === Half Angle
       $
         sin (θ / 2) & = pm sqrt((1 - cos θ) / 2) \
         cos (θ / 2) & = pm sqrt((1 + cos θ) / 2) \
       $
       $
         tan (θ / 2) = (sin θ) / (1 + cos θ) = (1 - cos θ) / (sin θ)
+      $
+    ],
+  ),
+  grid(
+    [
+      === Product to Sum
+      $
+        sin α sin β & = (cos (α - β) - cos (α + β)) / 2 \
+        cos α cos β & = (cos (α + β) + cos (α - β)) / 2 \
+        sin α cos β & = (sin (α + β) + sin (α - β)) / 2 \
+        cos α sin β & = (sin (α + β) - sin (α - β)) / 2
       $
     ],
     [
@@ -492,7 +491,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         tan^2 θ & = (1 - cos 2θ) / (1 + cos 2θ) \
       $
     ],
-  ),
+  )
 )
 
 == Laws
