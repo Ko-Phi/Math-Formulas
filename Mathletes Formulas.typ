@@ -88,7 +88,7 @@ Parallel lines have equivalent slopes, while perpendicular lines have slopes tha
 Consider the function $f(x) = a x^2 + b x + c$ with vertex $(-b / 2a, f(-b / 2a))$
 
 + $a > 0 ==> f$ has a _minimum_ at $x = -b / 2a$. The minimum value is $f(-b / 2a)$.
-+ $a > 0 ==> f$ has a _maximum_ at $x = -b / 2a$. The maximum value is $f(-b / 2a)$.
++ $a < 0 ==> f$ has a _maximum_ at $x = -b / 2a$. The maximum value is $f(-b / 2a)$.
 
 == General Polynomials
 
