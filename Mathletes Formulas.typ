@@ -495,7 +495,55 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 )
 
 == Laws
+#align(center, ctz-canvas(length: 1cm, {
+  import cetz.draw: *
 
+  ctz-init()
+  ctz-style(point: (shape: "dot", size: 0.08, fill: black))
+
+  ctz-def-points("A", (0, 0), "B", (3, 4), "C", (8, 0))
+
+  ctz-draw(segment: ("A", "B"))
+  ctz-draw(segment: ("B", "C"))
+  ctz-draw(segment: ("C", "A"))
+
+  ctz-def-midpoint("a", "B", "C")
+  ctz-def-midpoint("b", "A", "C")
+  ctz-def-midpoint("c", "A", "B")
+
+  ctz-draw-angle(
+    "A",
+    "B",
+    "C",
+    label: $ alpha $,
+    radius: 1,
+    stroke: red + 0.8pt,
+    fill: red.lighten(70%),
+  )
+  ctz-draw-angle(
+    "B",
+    "A",
+    "C",
+    label: $ beta $,
+    radius: 1,
+    stroke: green + 0.8pt,
+    fill: green.lighten(70%),
+  )
+  ctz-draw-angle(
+    "C",
+    "B",
+    "A",
+    label: $ gamma $,
+    radius: 1,
+    stroke: blue + 0.8pt,
+    fill: blue.lighten(70%),
+  )
+
+  ctz-style(point: (shape: "dot", size: 0))
+  ctz-draw(points: ("a", "b", "c"), labels: (
+    A: "below left",
+  ))
+}))
 #grid(
   columns: (1fr, 1fr, 1fr),
   [=== Law of Sines
