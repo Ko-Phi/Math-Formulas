@@ -358,44 +358,44 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 == Identities
 
 #grid(
-  columns: (1fr, 1.4fr, 1fr),
-  [
-    === Radians and Degrees
-    $
-           n° & = pi / 180n "rad" \
-      m "rad" & = (180 / pi m)°
-    $
-  ],
-  [
-    === Reciprocals
-    #grid(
-      columns: (auto, auto),
-      column-gutter: 16pt,
-      $
-        csc θ = (sin θ)^(-1) \
-        sec θ = (cos θ)^(-1) \
-        cot θ = (tan θ)^(-1)
-      $,
-      $
-        sin θ = (csc θ)^(-1) \
-        cos θ = (sec θ)^(-1) \
-        tan θ = (cot θ)^(-1)
-      $,
-    )
-  ],
-  [
-    === Pythagorean
-    $
-      sin^2θ + cos^2θ = 1 \
-      tan^2θ + 1 = sec^2θ \
-      1 + cot^2θ = csc^2θ
-    $
-  ],
-)
-
-#grid(
   columns: 1fr,
-  row-gutter: 16pt,
+  row-gutter: 24pt,
+  grid(
+    columns: (1fr, 1.4fr, 1fr),
+    [
+      === Radians and Degrees
+      $
+             n° & = pi / 180n "rad" \
+        m "rad" & = (180 / pi m)°
+      $
+    ],
+    [
+      === Reciprocals
+      #grid(
+        columns: (auto, auto),
+        column-gutter: 16pt,
+        $
+          csc θ = (sin θ)^(-1) \
+          sec θ = (cos θ)^(-1) \
+          cot θ = (tan θ)^(-1)
+        $,
+        $
+          sin θ = (csc θ)^(-1) \
+          cos θ = (sec θ)^(-1) \
+          tan θ = (cot θ)^(-1)
+        $,
+      )
+    ],
+    [
+      === Pythagorean
+      $
+        sin^2θ + cos^2θ = 1 \
+        tan^2θ + 1 = sec^2θ \
+        1 + cot^2θ = csc^2θ
+      $
+    ],
+  ),
+
   grid(
     [
       === Even/Odd
