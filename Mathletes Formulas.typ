@@ -629,7 +629,7 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
 == Graph Manipulation
 
 #align(center, block(breakable: false, table(
-  columns: 3,
+  columns: (1fr, 1fr, 2fr),
   table.header([Transformation], [Conditions], [Description]),
   $g(x) & = f(x pm c)$,
   $ (+) \ (-) $,
