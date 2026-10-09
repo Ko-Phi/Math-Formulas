@@ -675,6 +675,27 @@ Under these conditions, the function $g$ is the _inverse function_ of the functi
 
 The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ must be equal to the domain of $f^(-1)$.
 
+== Series
+
+#grid(
+  [=== Arithmetic
+
+    $ S_n = n / 2 (a_1 + a_n) $
+
+    $ a_n = a_1 + (n - 1)d $
+    $ S_n = n / 2 (2a_1 + (n - 1)d) $
+    $ sum_(i = 1)^n i = n(n + 1)/ 2 $],
+
+  [=== Geometric
+
+    $ S_n = (a_1 (1 - r^n)) / (1 - r), r != 0 $
+    $ sum_(i=1)^(oo)a_i = a_1 / (1 - r), abs(r) < 1 * $
+    $ a_n = a_1 r^(n - 1) $
+    #v(0.5em)
+    \* where there are infinitely many $a$ terms
+  ],
+)
+
 == Complex Numbers
 
 Let $a$ and $b$ be real numbers. The number $a + b i$ is a _complex number_ written in _standard form_. The number $a$ is the _real part_ and the number $b i$ is the _imaginary part_ of the complex number.
