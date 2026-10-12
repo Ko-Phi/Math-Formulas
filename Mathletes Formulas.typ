@@ -367,9 +367,9 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     #let bold(c) = text(weight: "bold")[#c]
     #grid(align: center)[
       1. #bold[A]ll functions are positive
-      2. Only #bold[T]angent is positive
+      3. Only #bold[T]angent is positive
     ][
-      3. Only #bold[S]ine is positive
+      2. Only #bold[S]ine is positive
       4. Only #bold[C]osine is positive
     ]
   ]
