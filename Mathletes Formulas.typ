@@ -352,7 +352,27 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     $1$,
 
     "cos", $0$, $ sqrt(3) / 3 $, $1$, $sqrt(3)$, [undef], $0$, [undef], $0$,
-  ))
+  )),
+  [
+    #figure(caption: [Function sign values in different quadrants], table(
+      columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+      table.header([], [QI], [QII], [QIII], [QIV]),
+      "sin / csc", $(+)$, $(+)$, $(-)$, $(-)$,
+      "cos / sec", $(+)$, $(-)$, $(-)$, $(+)$,
+      "tan / cot", $(+)$, $(-)$, $(+)$, $(-)$,
+    ))
+    You can use the mnemonic "All Students Take Calculus" (ASTC) to remember that in
+    #set enum(numbering: "QI.")
+
+    #let bold(c) = text(weight: "bold")[#c]
+    #grid(align: center)[
+      1. #bold[A]ll functions are positive
+      2. Only #bold[T]angent is positive
+    ][
+      3. Only #bold[S]ine is positive
+      4. Only #bold[C]osine is positive
+    ]
+  ]
 ))
 
 == Identities
@@ -686,7 +706,7 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
       + Two angles and a side (AAS or ASA)
       + Two sides and an opposites angle (SSA)
       + Three sides (SSS)
-      + Two sides and their include angle (SAS)
+      + Two sides and their included angle (SAS)
     ],
   )
   The first two cases can be solved using the #link(<LawOfSines>)[*Law of Sines*], whereas the last two require the #link(<LawOfCosines>)[*Law of Cosines*]
