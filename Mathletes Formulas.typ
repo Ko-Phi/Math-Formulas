@@ -549,7 +549,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
     })
     $ "Area" = 1 / 2 b c sin α = 1 / 2 a c sin β = 1 / 2 a b sin γ $],
   [
-    === Law of Sines
+    === Law of Sines <LawOfSines>
     $
       a / (sin α) = b / (sin β) = c / (sin γ) \
       (sin α) / a = (sin β) / b = (sin γ) / c \
@@ -561,7 +561,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 )
 #grid(
   [
-    === Law of Cosines
+    === Law of Cosines <LawOfCosines>
     $
       a^2 = b^2 + c^2 - 2 b c cos α \
       b^2 = a^2 + c^2 - 2 a c cos β \
@@ -601,9 +601,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   ],
 )
 
-== Shapes
-
-=== Circles
+== Circles
 #grid(
   columns: (1fr, 1fr, 1fr),
   $ (x - m)^2 + (y - n)^2=r^2 $,
@@ -611,22 +609,9 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
   $ "Circumference" = 2 pi r $,
 )
 
-=== Regular Polygons
-#grid(
-  $ "Sum of Interior Angles" = 180 (n - 2) degree $,
-  $ "Area" = 1 / 2 dot "Apothem" dot "Perimeter" $,
-)
+== Triangles
 
-=== Volumes
-#grid(
-  columns: (1fr, 1fr, 1fr, 1fr),
-  $ V_"Cylinder" = pi r^2 h $,
-  $ V_"Cone" = 1 / 3 pi r^2 h $,
-  $ V_"Sphere" = 4 / 3 pi r^3 $,
-  $ V_"Pyramid" = 1 / 3 B h $,
-)
-
-=== Triangle Similarity
+=== Similarity
 Two triangles $triangle A B C "and" triangle D E F$ are similar if
 #grid(
   columns: (1fr, 1fr, 1fr),
@@ -639,6 +624,98 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
     $
   ],
 )
+
+#block(breakable: false)[
+  === Oblique Trangles
+
+  Oblique triangles have no right angles.
+  To solve an oblique triangle, you nee to know the measure of at least one side along with any two other measures.
+
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 16pt,
+    ctz-canvas(length: 1cm, {
+      import cetz.draw: *
+
+      ctz-init()
+      ctz-style(point: (shape: "dot", size: 0.08, fill: black))
+
+      ctz-def-points("A", (0, 0), "B", (2, 3), "C", (5, 0))
+
+      ctz-draw(segment: ("A", "B"))
+      ctz-draw(segment: ("B", "C"))
+      ctz-draw(segment: ("C", "A"))
+
+      ctz-def-midpoint("a", "B", "C")
+      ctz-def-midpoint("b", "A", "C")
+      ctz-def-midpoint("c", "A", "B")
+
+      ctz-draw-angle(
+        "A",
+        "B",
+        "C",
+        radius: 0.75,
+        stroke: red + 0.8pt,
+        fill: red.lighten(70%),
+      )
+      ctz-draw-angle(
+        "B",
+        "A",
+        "C",
+        radius: 0.75,
+        stroke: green + 0.8pt,
+        fill: green.lighten(70%),
+      )
+      ctz-draw-angle(
+        "C",
+        "B",
+        "A",
+        radius: 0.75,
+        stroke: blue + 0.8pt,
+        fill: blue.lighten(70%),
+      )
+
+      ctz-style(point: (shape: "dot", size: 0))
+      ctz-draw(points: ("a", "b", "c", "A", "B", "C"), labels: (
+        A: "below left",
+        B: "above",
+        C: "below right",
+      ))
+    }),
+    align(left)[
+      + Two angles and a side (AAS or ASA)
+      + Two sides and an opposites angle (SSA)
+      + Three sides (SSS)
+      + Two sides and their include angle (SAS)
+    ],
+  )
+  The first two cases can be solved using the #link(<LawOfSines>)[*Law of Sines*], whereas the last two require the #link(<LawOfCosines>)[*Law of Cosines*]
+]
+=== Ambiguous Case (SSA)
+Consider a triangle in which $a, b, "and" A$ are given. $(h = b sin A)$
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  [A], [acute], [acute], [acute], [acute], [obtuse], [obtuse],
+  [Condition], $a < b$, $a = h$, $a >= b$, $h < a < b$, $a <= b$, $a > b$,
+  [Trangles Possible], [0], [1], [1], [2], [0], [1],
+)
+
+== Regular Polygons
+#grid(
+  $ "Sum of Interior Angles" = 180 (n - 2) degree $,
+  $ "Area" = 1 / 2 dot "Apothem" dot "Perimeter" $,
+)
+
+
+== Volumes
+#grid(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  $ V_"Cylinder" = pi r^2 h $,
+  $ V_"Cone" = 1 / 3 pi r^2 h $,
+  $ V_"Sphere" = 4 / 3 pi r^3 $,
+  $ V_"Pyramid" = 1 / 3 B h $,
+)
+
 
 == Graph Manipulation
 
