@@ -567,7 +567,10 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
         A: "below left",
       ))
     })
-    $ "Area" = 1 / 2 b c sin α = 1 / 2 a c sin β = 1 / 2 a b sin γ $],
+    $
+      "Area" = 1 / 2 b c sin α = 1 / 2 a c sin β = 1 / 2 a b sin γ
+    $
+  ],
   [
     === Law of Sines <LawOfSines>
     $
@@ -720,6 +723,11 @@ Consider a triangle in which $a, b, "and" A$ are given. $(h = b sin A)$
   [Trangles Possible], [0], [1], [1], [2], [0], [1],
 )
 
+#align(center)[
+  === Heron's Area Formula
+  $ "Area" = sqrt(s(s - a)(s - b)(s - c)), "where" s = (a + b + c) / 2 $
+]
+
 == Regular Polygons
 #grid(
   ctz-canvas(length: 1cm, {
@@ -810,7 +818,7 @@ Consider a triangle in which $a, b, "and" A$ are given. $(h = b sin A)$
     phi = ((180 degree) / (2n)) \
     \
     "Apothem" = r cos phi \
-    s = 2 r sin phi \
+    "Side Length" = 2 r sin phi \
     \
     "Area" = 1 / 2 dot "Apothem" dot "Perimeter" \
     sum "Interior Angles" = 180 (n - 2) degree \
