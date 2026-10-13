@@ -722,8 +722,99 @@ Consider a triangle in which $a, b, "and" A$ are given. $(h = b sin A)$
 
 == Regular Polygons
 #grid(
-  $ "Sum of Interior Angles" = 180 (n - 2) degree $,
-  $ "Area" = 1 / 2 dot "Apothem" dot "Perimeter" $,
+  ctz-canvas(length: 1cm, {
+    import cetz.draw: *
+
+    ctz-init()
+    ctz-style(point: (shape: "dot", size: 0.08, fill: black))
+
+    ctz-def-points(O: (0, 0), V1: (-3, 0))
+    ctz-def-regular-polygon(
+      "Pent",
+      ("A", "B", "C", "D", "E", "F").rev(),
+      "O",
+      "V1",
+    )
+
+    // Pentagon
+    ctz-draw("Pent", stroke: black + 1.5pt)
+
+    // Circles
+    ctz-def-circle("C1", "O", radius: 3)
+    ctz-draw("C1", stroke: green.lighten(50%) + 0.5pt)
+
+    ctz-def-circle("C2", "O", radius: 3 * calc.cos(2 * calc.pi / 12))
+    ctz-draw("C2", stroke: purple.lighten(50%) + 0.5pt)
+
+    ctz-def-midpoint("M", "B", "C")
+    ctz-draw(segment: ("O", "M"), stroke: purple.darken(20%) + 0.8pt)
+    ctz-draw-measure-segment(
+      "O",
+      "M",
+      label: "Apothem",
+      offset: 0.25,
+      stroke: 0pt,
+      side: "right",
+    )
+    ctz-draw-mark-right-angle("C", "M", "O", color: purple)
+
+    ctz-draw-measure-segment(
+      "B",
+      "C",
+      label: $ s $,
+      offset: 0.25,
+      side: "left",
+    )
+
+    ctz-draw(segment: ("O", "B"), stroke: purple.darken(20%) + 0.8pt)
+    ctz-draw-measure-segment(
+      "O",
+      "B",
+      label: "Radius",
+      offset: 0.25,
+      stroke: 0pt,
+      side: "left",
+    )
+
+    ctz-draw-angle(
+      "E",
+      "F",
+      "D",
+      radius: 0.75,
+      label: $ theta $,
+      stroke: green + 0.8pt,
+      fill: green.lighten(70%),
+    )
+    ctz-draw-angle(
+      "O",
+      "B",
+      "M",
+      radius: 1,
+      label: $ phi $,
+      stroke: purple + 0.8pt,
+      fill: purple.lighten(70%),
+    )
+
+    ctz-draw(points: ("A", "B", "C", "D", "E", "F", "O"), labels: (
+      A: "above left",
+      B: "above right",
+      C: "right",
+      D: "below right",
+      E: "below left",
+      F: "left",
+      O: "below",
+    ))
+  }),
+  $
+    theta = (180 (n - 2) degree) / n \
+    phi = ((180 degree) / (2n)) \
+    \
+    "Apothem" = r cos phi \
+    s = 2 r sin phi \
+    \
+    "Area" = 1 / 2 dot "Apothem" dot "Perimeter" \
+    sum "Interior Angles" = 180 (n - 2) degree \
+  $,
 )
 
 
