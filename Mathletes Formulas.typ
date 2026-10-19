@@ -92,8 +92,8 @@ Consider the function $f(x) = a x^2 + b x + c$ with vertex $(-b / 2a, f(-b / 2a)
 
 == General Polynomials
 
-Let $n$ be a non-negative integer and let $a_n, a_(n-1), ... , a_2, a_1, a_0$ be real numbers such that $a_n != 0$. The function:
-$ f(x) = a_n x^n + a_(n-1)x^(n-1) + ... + a_2x^2 + a_1x + a_0 $
+Let $n$ be a non-negative integer and let $a_n, a_(n - 1), ... , a_2, a_1, a_0$ be real numbers such that $a_n != 0$. The function:
+$ f(x) = a_n x^n + a_(n - 1)x^(n - 1) + ... + a_2x^2 + a_1x + a_0 $
 is a polynomial function of $x$ with degree $n$.
 
 === Linear Factorization Theorem
@@ -635,7 +635,7 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
 == Circles
 #grid(
   columns: (1fr, 1fr, 1fr),
-  $ (x - m)^2 + (y - n)^2=r^2 $,
+  $ (x - m)^2 + (y - n)^2 = r^2 $,
   $ "Area" = pi r^2 $,
   $ "Circumference" = 2 pi r $,
 )
@@ -660,7 +660,7 @@ Two triangles $triangle A B C "and" triangle D E F$ are similar if
   === Oblique Trangles
 
   Oblique triangles have no right angles.
-  To solve an oblique triangle, you nee to know the measure of at least one side along with any two other measures.
+  To solve an oblique triangle, you need to know the measure of at least one side along with any two other measures.
 
   #grid(
     columns: (auto, 1fr),
@@ -907,7 +907,7 @@ The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ m
   [=== Geometric
 
     $ S_n = (a_1 (1 - r^n)) / (1 - r), r != 0 $
-    $ sum_(i=1)^(oo)a_i = a_1 / (1 - r), abs(r) < 1 * $
+    $ sum_(i = 1)^(oo)a_i = a_1 / (1 - r), abs(r) < 1 * $
     $ a_n = a_1 r^(n - 1) $
     #v(0.5em)
     \* where there are infinitely many $a$ terms
@@ -961,7 +961,6 @@ $
 $
 
 In other words, $x^n = a + b i => x = z_0, z_1, z_2, ... z_(n - 1)$
-
 
 == Exponential and Logarithmic Properties
 
