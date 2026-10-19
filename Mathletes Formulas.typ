@@ -916,11 +916,51 @@ The domain of $f$ must be equal to the range of $f^(-1)$, and the range of $f$ m
 
 == Complex Numbers
 
-Let $a$ and $b$ be real numbers. The number $a + b i$ is a _complex number_ written in _standard form_. The number $a$ is the _real part_ and the number $b i$ is the _imaginary part_ of the complex number.
+Let $a$ and $b$ be real numbers. The number $a + b i$ is a _complex number_ written in _standard form_. The number $a$ is the _real part_ and the number $b i$ is the _imaginary part_ of the complex number. The absolute value of an imaginary number is defined as its distance from the origin, $sqrt(a^2 + b^2)$
 
 When $b = 0$, the number $a + b i$ is a real number. When $b != 0$, the number $a + b i$ is an _imaginary number_. A number of the form $b i$, where $b != 0$, is a _pure imaginary number_.
 
-$ i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, i^n = i^(n mod 4) $
+$ i^0 = 1, i^1 = i, i^2 = -1, i^3 = -i, i^n = i^(n mod 4) $
+
+=== Trigonometric Form
+
+$ z = a + b i = r (cos theta + i sin theta) $
+
+such that $r = abs(z) = sqrt(a^2 + b^2)$, $tan theta = display(b / a)$,
+$a = r cos theta$ and $b = r sin theta$, Here $r$ is the _modulus_ of $z$, and $theta$ is an _argument_ of $z$.
+
+=== Product and Quotient
+
+Let $z_1 = r_1 (cos theta_1 + i sin theta_1)$ and $z_2 = r_2 (cos theta_2 + i sin theta_2)$ be complex numbers
+
+#grid(
+  $
+    & z_1 z_2 = r_1 r_2 (cos (theta_1 + theta_2) + i sin (theta_1 + theta_2))
+  $,
+  $
+    & z_1 / z_2 = r_1 / r_2 (cos (theta_1 - theta_2) + i sin (theta_1 - theta_2)), z_2 != 0
+  $,
+)
+
+#block(breakable: false)[
+  === DeMoivre's Theorem
+
+  If $z = r (cos theta + i sin theta)$ is a complex number and $n$ is positive integer, then
+
+  $
+    z^n = (r (cos theta + i sin theta))^2 = r^n (cos (n theta) + i sin (n theta))
+  $
+]
+
+=== Roots of Unity
+
+For a positive integer $n$, the complex number $z = r (cos theta + i sin theta)$ has exactly $n$ distinct $n$th roots given by
+
+$
+  z_k = root(n, r) (cos (theta + 2 pi k) / n + i sin (theta + 2 pi k) / n)", "k = 0, 1, 2, ..., n - 1
+$
+
+In other words, $x^n = a + b i => x = z_0, z_1, z_2, ... z_(n - 1)$
 
 == Exponential and Logarithmic Properties
 
