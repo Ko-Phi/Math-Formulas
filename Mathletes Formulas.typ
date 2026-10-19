@@ -598,8 +598,8 @@ Suppose $N(x)$ and $D(x)$ had some common factor $(x - c)$. The graph of $f$ wou
       b^2 = a^2 + c^2 - 2 a c cos β \
       c^2 = a^2 + b^2 - 2 a b cos γ \
       cos α = (b^2 + c^2 - a^2) / (2 b c) \
-      cos β = (a^2 + c^2 - b^2) / (2 b c) \
-      cos γ = (a^2 + b^2 - c^2) / (2 b c)
+      cos β = (a^2 + c^2 - b^2) / (2 a c) \
+      cos γ = (a^2 + b^2 - c^2) / (2 a b)
     $
   ],
   [
@@ -962,6 +962,7 @@ $
 
 In other words, $x^n = a + b i => x = z_0, z_1, z_2, ... z_(n - 1)$
 
+
 == Exponential and Logarithmic Properties
 
 #align(center)[
@@ -995,7 +996,7 @@ In other words, $x^n = a + b i => x = z_0, z_1, z_2, ... z_(n - 1)$
              ln x & = log_e x \
       n^(log_n x) & = x \
         log_n n^x & = x \
-      log_n a = b & ==> a =n^b
+      log_n a = b & ==> a = n^b
     $,
     $
         log_n a^b & = b log_n a \
