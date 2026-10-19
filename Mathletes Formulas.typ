@@ -993,9 +993,9 @@ In other words, $x^n = a + b i => x = z_0, z_1, z_2, ... z_(n - 1)$
           log_n n & = 1 \
             log x & = log_(10)x \
              ln x & = log_e x \
-      log_n a = b & ==> a =n^b \
       n^(log_n x) & = x \
-        log_n n^x & = x
+        log_n n^x & = x \
+      log_n a = b & ==> a =n^b
     $,
     $
         log_n a^b & = b log_n a \
