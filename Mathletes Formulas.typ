@@ -127,6 +127,14 @@ $ f(x) = a_n x^n + a_(n - 1) x^(n - 1) + ... + a_2x^2 + a_1x + a_0 $
   $ "The product of all roots" = (-1)^n a_0 / a_n $,
 )
 
+=== Binomial Theorem
+
+Let $n$ be a non-negative integer
+
+$
+  (x + y)^n = sum_(k = 0)^n binom(n, k) x^(n - k) y^k", where "binom(n, k) = (n!) / (k! (n - k)!)
+$
+
 == Rational Functions
 
 Let $f$ be the rational function
