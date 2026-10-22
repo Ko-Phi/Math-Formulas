@@ -962,6 +962,53 @@ $
 
 In other words, $x^n = a + b i => x = z_0, z_1, z_2, ... z_(n - 1)$
 
+== Systems of Equations
+
+#grid(
+  [
+    === Method of Substitution
+
+    + _Solve_ one of the equations for one variable in terms of the other.
+    + _Substitute_ the previous expression into the other equation.
+  ],
+  [
+    === Method of Elimination
+
+    + _Obtain coefficients_ for $x$ (or $y$) that differ only in sign.
+    + _Add_ the equations to eliminate one variable
+  ],
+)
+
+#v(1em)
+
+3. _Solve_ the equation obtained in Step 2
+4. _Back-substitute_ the value obtained in Step 3 into the expression obtained in Step 1 to find the value of the other variable
+5. _Check_ that the solution satisfies each of the original equations
+
+=== Guassian Elimination
+
+Each of the following _row operations_ on system of linear equations produces an _equivalent_ system of equations. The goal is to reache _Row-Echelon Form_.
+
+#grid(
+  columns: (2fr, 1fr),
+  align: (left + horizon, center + horizon),
+  [
+    + Interchange two equations
+    + Multiply one of the equations by a nonzero constant
+    + Add a multiple of one equation to another equation to replace the latter equation
+  ],
+  [
+    === Row-Echelon Form
+    $
+      cases(
+        x + a_1 & y + a_2 & z = b_1,
+        & y + a_3 & z = b_2,
+        && z = b_3
+      )
+    $
+  ],
+)
+
 == Exponential and Logarithmic Properties
 
 #align(center)[
